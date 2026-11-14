@@ -636,7 +636,7 @@ export default function App() {
                   <div className="intro-map-info">
                     <span className="map-badge-pin">
                       <MapPin size={14} />
-                      <strong>Tucumán 2901</strong> (esq. Castelli)
+                      <strong>Tucumán esq. Castelli</strong>
                     </span>
                     <span className="map-badge-hint">A 5 cuadras del Paseo Aldrey · Mar del Plata</span>
                   </div>
