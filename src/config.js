@@ -139,7 +139,7 @@ export const SITE_CONFIG = {
     eyebrow: "HAMBURGUESAS TOPE DE GAMA",
     title: "Abundantes, ricas y de calidad",
     description:
-      "Sin atajos ni medallones congelados. Usamos materia prima fresca y cocinamos con técnica y detalle para que cada burger que llega a tus manos sea tope de gama. Si vas a darte el gusto, que valga la pena.",
+      "Sin atajos ni medallones congelados. Usamos materia prima fresca y cocinamos con atención al detalle. Si vas a darte el gusto, que valga la pena.",
     specs: [
       { emoji: "🥩", label: "Blend propio", text: "Tapa de asado y roastbeef." },
       { emoji: "🍞", label: "El pan", text: "Brioche de papa con cúrcuma." },
