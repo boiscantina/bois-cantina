@@ -274,8 +274,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* 2. DESEO VISUAL INMEDIATO: ESTRELLAS DE LA CASA & PILARES GASTRONÓMICOS */}
-        <section className="burgers-section" aria-label="Estrellas de la casa">
+        {/* 2. DESEO VISUAL INMEDIATO: HAMBURGUESAS TOPE DE GAMA */}
+        <section className="burgers-section" aria-label="Hamburguesas Tope de Gama">
           <div className="container">
             <div className="section-header burgers-header">
               <span className="section-eyebrow">
@@ -289,10 +289,25 @@ export default function App() {
               <div className="burger-specs-pills">
                 {SITE_CONFIG.burgersSection.specs.map((spec, idx) => (
                   <span key={idx} className="burger-spec-pill">
-                    <CheckCircle2 size={14} />
-                    {spec}
+                    <span className="burger-spec-emoji">{spec.emoji}</span>
+                    <strong className="burger-spec-label">{spec.label}:</strong>
+                    <span className="burger-spec-text">{spec.text}</span>
                   </span>
                 ))}
+              </div>
+
+              {/* Botón Ver menú y pedir ahora */}
+              <div className="burgers-header-cta-wrap">
+                <a
+                  href={getWhatsAppUrl(SITE_CONFIG.burgersSection.ctaPrompt)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-burgers-main-cta"
+                >
+                  <MessageCircle size={19} />
+                  <span>{SITE_CONFIG.burgersSection.ctaText}</span>
+                  <ArrowUpRight size={17} />
+                </a>
               </div>
             </div>
 

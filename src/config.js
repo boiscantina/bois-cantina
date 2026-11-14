@@ -134,19 +134,21 @@ export const SITE_CONFIG = {
     ],
   },
 
-  // Sección: Las Estrellas de la Casa (Foco 100% en técnica, insumos y personalización)
+  // Sección: Hamburguesas Tope de Gama (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
-    eyebrow: "LAS ESTRELLAS DE LA CASA",
-    title: "Burgers abundantes, jugosas y las más elogiadas",
+    eyebrow: "HAMBURGUESAS TOPE DE GAMA",
+    title: "Abundantes, ricas y de calidad",
     description:
-      "Nada de medallones congelados. Usamos materia prima de calidad, cocinamos con técnica y detalle para que cada burger que probás salga tope de gama.",
+      "Sin atajos ni medallones congelados. Usamos materia prima fresca y cocinamos con técnica y detalle para que cada burger que llega a tus manos sea tope de gama. Si vas a darte el gusto, que valga la pena.",
     specs: [
-      "Blend propio de tapa de asado y roastbeef",
-      "Pan de papa brioche con cúrcuma",
-      "Papas fritas siempre ricas & crocantes",
-      "Promos todos los días",
-      "Opción sin TACC & medallón vegano",
+      { emoji: "🥩", label: "Blend propio", text: "Tapa de asado y roastbeef." },
+      { emoji: "🍞", label: "El pan", text: "Brioche de papa con cúrcuma." },
+      { emoji: "🍟", label: "Papas fritas", text: "Siempre ricas y crocantes." },
+      { emoji: "🌱", label: "Para todos", text: "Opciones sin TACC y medallón vegano." },
+      { emoji: "🔥", label: "Beneficios", text: "Promos todos los días." },
     ],
+    ctaText: "Ver menú y pedir ahora",
+    ctaPrompt: "¡Hola BOIS! Quiero ver el menú y hacer un pedido de burgers 🍔🍟",
   },
 
   // Las 3 Hamburguesas Destacadas (con ingredientes reales de la carta oficial y todas salen con papas)
