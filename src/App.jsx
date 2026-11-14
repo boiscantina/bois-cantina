@@ -671,51 +671,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* FRANJA DE MARCA: ESPECIALISTAS EN BUENOS PLANES + MAPA DE GOOGLE */}
-        <section className="intro-story-section" aria-label="Especialistas en buenos planes y ubicación">
-          <div className="container">
-            <div className="intro-banner-card">
-              <div className="intro-banner-header">
-                <h2 className="intro-story-title">{SITE_CONFIG.introSection.title}</h2>
-                <p className="intro-story-lead">{SITE_CONFIG.introSection.lead}</p>
-              </div>
-
-              {/* Mapa de Google Maps */}
-              <div className="intro-map-wrapper">
-                <iframe
-                  title="Ubicación de BOIS Cantina en Google Maps"
-                  src={SITE_CONFIG.introSection.mapEmbedUrl}
-                  width="100%"
-                  height="340"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="intro-map-iframe"
-                />
-                <div className="intro-map-overlay-footer">
-                  <div className="intro-map-info">
-                    <span className="map-badge-pin">
-                      <MapPin size={14} />
-                      <strong>Tucumán esq. Castelli</strong>
-                    </span>
-                    <span className="map-badge-hint">A 5 cuadras del Paseo Aldrey · Mar del Plata</span>
-                  </div>
-                  <a
-                    href={SITE_CONFIG.contact.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-open-maps"
-                  >
-                    <span>Cómo llegar en Google Maps</span>
-                    <Navigation size={14} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* 4. BANNER DE CUMPLEAÑOS, GRUPOS Y PEDIDOS DIRECTOS */}
         <section className="quick-order-section" aria-label="Reservas de cumpleaños, grupos y pedidos directos">
           <div className="container">
@@ -883,6 +838,54 @@ export default function App() {
                     </details>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. MAPA GOOGLE FULL-WIDTH: TUCUMÁN ESQ. CASTELLI */}
+        <section id="ubicacion" className="fullwidth-map-section" aria-label="Ubicación de BOIS en Google Maps">
+          <div className="container">
+            <div className="section-header map-section-header">
+              <span className="section-eyebrow">
+                <MapPin size={14} /> Tucumán esq. Castelli
+              </span>
+              <h2 className="section-title">{SITE_CONFIG.introSection.title}</h2>
+              <p className="section-description">{SITE_CONFIG.introSection.lead}</p>
+            </div>
+          </div>
+
+          {/* Mapa 100% full-width sin formato tarjeta */}
+          <div className="fullwidth-map-container">
+            <iframe
+              title="Ubicación de BOIS Cantina en Google Maps"
+              src={SITE_CONFIG.introSection.mapEmbedUrl}
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="fullwidth-map-iframe"
+            />
+            <div className="fullwidth-map-bar">
+              <div className="container fullwidth-map-bar-inner">
+                <div className="fullwidth-map-info">
+                  <span className="map-badge-pin">
+                    <MapPin size={16} />
+                    <strong>{SITE_CONFIG.introSection.mapAddressLabel}</strong>
+                  </span>
+                  <span className="map-badge-hint">{SITE_CONFIG.introSection.mapZoneLabel}</span>
+                </div>
+                <a
+                  href={SITE_CONFIG.contact.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-open-maps"
+                >
+                  <span>Cómo llegar en Google Maps</span>
+                  <Navigation size={14} />
+                </a>
               </div>
             </div>
           </div>
