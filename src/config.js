@@ -134,18 +134,18 @@ export const SITE_CONFIG = {
     ],
   },
 
-  // Sección: Hamburguesas ricas & abundantes (Foco 100% en técnica, insumos y personalización)
+  // Sección: Nuestras Smash Burgers (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
-    eyebrow: "Estrellas de la casa",
-    title: "Hamburguesas ricas & abundantes con ingredientes de primera",
+    eyebrow: "NUESTRAS SMASH BURGERS",
+    title: "Burgers abundantes, jugosas y las más elogiadas",
     description:
-      "En nuestra cocina trabajamos con orden, técnica y limpieza con mucha atención al detalle para que cada burger que pruebas sea tope de gama.",
+      "Nada de medallones congelados. Usamos materia prima de calidad, cocinamos con técnica y detalle para que cada burger que probás salga tope de gama.",
     specs: [
       "Blend propio de tapa de asado y roastbeef",
-      "Pan de papa estilo brioche con cúrcuma",
-      "Las papas fritas más elogiadas",
+      "Pan de papa brioche con cúrcuma",
+      "Papas fritas siempre ricas & crocantes",
       "Promos todos los días",
-      "Opción de pan sin TACC & medallón vegano",
+      "Opción sin TACC & medallón vegano",
     ],
   },
 
