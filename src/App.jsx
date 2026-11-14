@@ -366,7 +366,7 @@ export default function App() {
                 </div>
 
                 <h2 className="reviews-section-title">
-                  Lo que dicen quienes nos eligen
+                  Muchas gracias a quienes nos eligen
                 </h2>
                 <p className="reviews-section-subtitle">
                   Opiniones espontáneas de comensales y Local Guides que pasaron por la esquina de Castelli y Tucumán.
