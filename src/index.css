@@ -2422,10 +2422,12 @@ a {
 }
 
 .schedule-faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 24px;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .schedule-box,
@@ -2811,16 +2813,95 @@ a {
 .site-footer {
   background: var(--bois-blue-dark);
   color: var(--bois-cream);
-  padding: 40px 0 105px;
+  padding: 48px 0 105px;
 }
 
 .footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-size: 0.88rem;
+}
+
+.footer-instagram-bar {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 22px 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
-  font-size: 0.88rem;
+  width: 100%;
+}
+
+.footer-instagram-lead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 660px;
+}
+
+.footer-ig-icon {
+  color: #f472b6;
+  flex-shrink: 0;
+}
+
+.footer-ig-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--bois-cream);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.footer-ig-subtitle {
+  font-size: 0.86rem;
+  color: rgba(252, 251, 228, 0.82);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.footer-instagram-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-footer-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--bois-cream);
+  font-size: 0.83rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-footer-ig:hover {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  border-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(225, 48, 108, 0.35);
+}
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-brand {
@@ -2930,8 +3011,7 @@ a {
 }
 
 @media (max-width: 900px) {
-  .about-card,
-  .schedule-faq-grid {
+  .about-card {
     grid-template-columns: 1fr;
   }
 
@@ -3222,6 +3302,34 @@ a {
   /* Footer en celular */
   .site-footer {
     padding: 32px 0 96px;
+  }
+
+  .footer-instagram-bar {
+    padding: 18px 16px;
+    gap: 16px;
+  }
+
+  .footer-instagram-lead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-instagram-buttons {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-footer-ig {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
 
   .footer-brand {

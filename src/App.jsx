@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
   MessageCircle,
-  FileDown,
-  ExternalLink,
   Instagram,
   MapPin,
   Clock,
   Sparkles,
-  Heart,
   CheckCircle2,
   ArrowUpRight,
   Utensils,
@@ -719,7 +716,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 4. BANNER DE CUMPLEAÑOS, GRUPOS Y PEDIDOS + LOS 3 MENÚS PDF */}
+        {/* 4. BANNER DE CUMPLEAÑOS, GRUPOS Y PEDIDOS DIRECTOS */}
         <section className="quick-order-section" aria-label="Reservas de cumpleaños, grupos y pedidos directos">
           <div className="container">
             <div className="quick-order-banner">
@@ -745,63 +742,6 @@ export default function App() {
                   <span>Pedidos &amp; reservas</span>
                 </a>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="menus" className="menus-section" aria-label="Menús en PDF para descargar">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-eyebrow">
-                <Utensils size={14} /> Nuestras 3 Cartas Digitales
-              </span>
-              <h2 className="section-title">Descargá nuestros menús en PDF</h2>
-              <p className="section-description">
-                Mirá o descargá nuestras cartas completas actualizadas.
-              </p>
-            </div>
-
-            <div className="menus-grid">
-              {SITE_CONFIG.menus.map((menu, index) => (
-                <article key={menu.id} className="menu-card">
-                  <div className="menu-card-top">
-                    <div className="menu-badge-row">
-                      <span className="menu-number">0{index + 1}</span>
-                      <span className="menu-tag">{menu.badge}</span>
-                    </div>
-
-                    <h3 className="menu-title">{menu.title}</h3>
-                    <p className="menu-subtitle">{menu.subtitle}</p>
-
-                    <div className="menu-schedule">
-                      <Clock size={14} />
-                      <span>{menu.schedule}</span>
-                    </div>
-                  </div>
-
-                  <div className="menu-card-actions">
-                    <a
-                      href={menu.fileUrl}
-                      download={menu.fileName}
-                      className="btn-pdf-download"
-                    >
-                      <FileDown size={18} />
-                      <span>Descargar PDF</span>
-                    </a>
-
-                    <a
-                      href={menu.fileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-pdf-view"
-                      title="Abrir PDF en una pestaña nueva"
-                    >
-                      <ExternalLink size={16} />
-                      <span>Ver online</span>
-                    </a>
-                  </div>
-                </article>
-              ))}
             </div>
           </div>
         </section>
@@ -850,75 +790,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 6. COMUNIDAD VISUAL: INSTAGRAM DESTACADO (@boisburgers y @boiscantina) */}
-        <section className="instagram-section" aria-label="Contenido destacado de Instagram">
-          <div className="container">
-            <div className="section-header">
-              <div className="ig-handles-top">
-                {SITE_CONFIG.instagram.accounts.map((acc) => (
-                  <a
-                    key={acc.handle}
-                    href={acc.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="section-eyebrow ig-eyebrow-link"
-                  >
-                    <Sparkles size={14} /> {acc.handle}
-                  </a>
-                ))}
-              </div>
-              <h2 className="section-title">{SITE_CONFIG.instagram.sectionTitle}</h2>
-              <p className="section-description">
-                {SITE_CONFIG.instagram.sectionSubtitle}
-              </p>
-            </div>
-
-            <div className="ig-grid">
-              {SITE_CONFIG.instagram.posts.map((post) => (
-                <a
-                  key={post.id}
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ig-card"
-                >
-                  <img
-                    src={post.image}
-                    alt={post.caption}
-                    loading="lazy"
-                    className="ig-image"
-                  />
-                  <span className="ig-floating-tag">{post.tag}</span>
-                  <div className="ig-card-overlay">
-                    <div className="ig-likes">
-                      <Heart size={16} fill="currentColor" />
-                      <span>{post.likes}</span>
-                    </div>
-                    <p className="ig-caption">{post.caption}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            <div className="ig-cta-wrapper">
-              {SITE_CONFIG.instagram.accounts.map((acc) => (
-                <a
-                  key={acc.handle}
-                  href={acc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-instagram-follow"
-                >
-                  <Instagram size={20} />
-                  <span>{acc.label}</span>
-                  <ArrowUpRight size={17} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 7. CIERRE LOGÍSTICO Y DUDAS: HORARIOS EN VIVO & PREGUNTAS FRECUENTES DESPLEGABLES */}
+        {/* 6. CIERRE LOGÍSTICO Y DUDAS: HORARIOS EN VIVO & PREGUNTAS FRECUENTES DESPLEGABLES */}
         <section id="horarios-faq" className="schedule-faq-section" aria-label="Horarios de atención y preguntas frecuentes">
           <div className="container">
             <div className="schedule-faq-grid">
@@ -1017,43 +889,72 @@ export default function App() {
         </section>
       </main>
 
-      {/* FOOTER CON FONDO AZUL MARCA (#1A4861), DIRECCIÓN SEMÁNTICA CASTELLI 2011 Y LINKS */}
+      {/* FOOTER CON FONDO AZUL MARCA (#1A4861), BARRA DE INSTAGRAM, DIRECCIÓN Y LINKS */}
       <footer className="site-footer">
         <div className="container footer-inner">
-          <div className="footer-brand">
-            <img
-              src={SITE_CONFIG.logos.fullCream}
-              alt="BOIS café & cantina"
-              className="footer-logo-img"
-            />
-            <address className="footer-brand-info">
-              <strong>
-                {SITE_CONFIG.brandName} · {SITE_CONFIG.brandSub} ({SITE_CONFIG.city})
-              </strong>
-              <span>
-                {SITE_CONFIG.addressFull} · Calificación {SITE_CONFIG.googleRating.score}★ (+{SITE_CONFIG.googleRating.reviewsCount} reseñas)
-              </span>
-            </address>
+          {/* Frase y accesos de Seguinos en Instagram */}
+          <div className="footer-instagram-bar">
+            <div className="footer-instagram-lead">
+              <Instagram size={24} className="footer-ig-icon" />
+              <div>
+                <strong className="footer-ig-title">Seguinos en Instagram</strong>
+                <p className="footer-ig-subtitle">
+                  {SITE_CONFIG.instagram.sectionSubtitle}
+                </p>
+              </div>
+            </div>
+            <div className="footer-instagram-buttons">
+              {SITE_CONFIG.instagram.accounts.map((acc) => (
+                <a
+                  key={acc.handle}
+                  href={acc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-footer-ig"
+                >
+                  <Instagram size={16} />
+                  <span>{acc.label}</span>
+                  <ArrowUpRight size={14} />
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="footer-links">
-            <a href="#horarios-faq" onClick={scrollToSection('horarios-faq')}>Horarios</a>
-            <a href="#menus" onClick={scrollToSection('menus')}>Menús PDF</a>
-            <a href={SITE_CONFIG.contact.googleMapsUrl} target="_blank" rel="noopener noreferrer">
-              Cómo llegar
-            </a>
-            <a href={mainWhatsAppUrl} target="_blank" rel="noopener noreferrer">
-              WhatsApp ({SITE_CONFIG.contact.whatsappDisplay})
-            </a>
-            {SITE_CONFIG.instagram.accounts.map((acc) => (
-              <a
-                key={acc.handle}
-                href={acc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {acc.handle}
+
+          <div className="footer-bottom-row">
+            <div className="footer-brand">
+              <img
+                src={SITE_CONFIG.logos.fullCream}
+                alt="BOIS café & cantina"
+                className="footer-logo-img"
+              />
+              <address className="footer-brand-info">
+                <strong>
+                  {SITE_CONFIG.brandName} · {SITE_CONFIG.brandSub} ({SITE_CONFIG.city})
+                </strong>
+                <span>
+                  {SITE_CONFIG.addressFull} · Calificación {SITE_CONFIG.googleRating.score}★ (+{SITE_CONFIG.googleRating.reviewsCount} reseñas)
+                </span>
+              </address>
+            </div>
+            <div className="footer-links">
+              <a href="#horarios-faq" onClick={scrollToSection('horarios-faq')}>Horarios &amp; Dudas</a>
+              <a href={SITE_CONFIG.contact.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                Cómo llegar
               </a>
-            ))}
+              <a href={mainWhatsAppUrl} target="_blank" rel="noopener noreferrer">
+                WhatsApp ({SITE_CONFIG.contact.whatsappDisplay})
+              </a>
+              {SITE_CONFIG.instagram.accounts.map((acc) => (
+                <a
+                  key={acc.handle}
+                  href={acc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {acc.handle}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </footer>
