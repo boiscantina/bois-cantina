@@ -249,9 +249,6 @@ export default function BurgerMenuDrawer({
                       loading="lazy"
                       className="drawer-burger-img"
                     />
-                    {burger.badge && (
-                      <span className="drawer-burger-chip">{burger.badge}</span>
-                    )}
                   </div>
 
                   <div className="drawer-burger-details">
