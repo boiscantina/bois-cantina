@@ -64,7 +64,7 @@ export const SITE_CONFIG = {
       "https://www.google.com/maps/dir/?api=1&destination=Tucum%C3%A1n+2901,+Mar+del+Plata,+Provincia+de+Buenos+Aires,+Argentina",
     defaultWhatsappMessage:
       "¡Hola BOIS! Vi su web y quiero hacer un pedido / reservar una mesa.",
-    ctaPrimaryText: "Pedidos & reservas por WhatsApp",
+    ctaPrimaryText: "Pedidos & Delivery por WhatsApp",
     ctaHeaderText: "Pedidos & reservas",
     ctaMapsText: "Cómo llegar",
     ctaFloatingText: "Pedidos & reservas",
