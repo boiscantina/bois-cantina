@@ -626,10 +626,6 @@ export default function App() {
           <div className="container">
             <div className="intro-banner-card">
               <div className="intro-banner-header">
-                <span className="intro-location-tag">
-                  <MapPin size={15} />
-                  <span>{SITE_CONFIG.introSection.mapAddressLabel} · {SITE_CONFIG.introSection.mapZoneLabel}</span>
-                </span>
                 <h2 className="intro-story-title">{SITE_CONFIG.introSection.title}</h2>
                 <p className="intro-story-lead">{SITE_CONFIG.introSection.lead}</p>
               </div>

@@ -203,7 +203,7 @@ export const SITE_CONFIG = {
     },
     {
       title: "Café de Bolivia & Opciones Fit",
-      badge: "10% OFF Gimnasio Vecino",
+      badge: "10% OFF Gym Mode On",
       text: "Café Fruto Negro, medialunas recién horneadas, tostón con palta y huevo, huevos con panceta, pancake fit y batidos de proteína.",
     },
   ],
@@ -268,8 +268,8 @@ export const SITE_CONFIG = {
         desc: "Ambientación cálida, buena música, tragos y la mejor onda",
       },
       {
-        title: "Promos Diarias & 10% OFF Gym",
-        desc: "Descuentos todos los días y beneficio con el gimnasio vecino",
+        title: "Promos Diarias & 10% OFF Gym Mode On",
+        desc: "Descuentos todos los días y 10% de beneficio para las personas de Gym Mode On",
       },
       {
         title: "Sin TACC, Vegano & Fit",
@@ -298,7 +298,7 @@ export const SITE_CONFIG = {
     },
     {
       q: "¿Qué opciones tienen para desayunar, entrenar (Fit) o almorzar?",
-      a: "Café Fruto Negro de Bolivia, medialunas, tostón con palta y huevo, pancake fit y batidos de proteína (10% OFF cruzado con el gym vecino). De lunes a viernes, menú ejecutivo con bebida incluida.",
+      a: "Café Fruto Negro de Bolivia, medialunas, tostón con palta y huevo, pancake fit y batidos de proteína (10% OFF para las personas de Gym Mode On). De lunes a viernes, menú ejecutivo con bebida incluida.",
     },
   ],
 
@@ -555,7 +555,7 @@ export const SITE_CONFIG = {
         id: 6,
         image:
           "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-        caption: "Post-entreno o merienda: tostón con palta y huevo, pancake fit, batidos de proteína y café Fruto Negro (10% OFF cruzado con el gym vecino) ☕🥑",
+        caption: "Post-entreno o merienda: tostón con palta y huevo, pancake fit, batidos de proteína y café Fruto Negro (10% OFF para las personas de Gym Mode On) ☕🥑",
         likes: "334",
         tag: "@boiscantina · Fit & Café",
         url: "https://www.instagram.com/boiscantina/",
