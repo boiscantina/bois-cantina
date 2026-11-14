@@ -427,7 +427,7 @@ export default function App() {
                   className={`btn-mode-tab ${!showAllReviews ? 'is-active' : ''}`}
                   onClick={() => setShowAllReviews(false)}
                 >
-                  Carrusel ({allReviews.length})
+                  Destacadas
                 </button>
                 <button
                   type="button"
