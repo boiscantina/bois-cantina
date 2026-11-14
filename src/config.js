@@ -646,7 +646,7 @@ export function getBoisLiveStatus() {
 
     return {
       isOpen,
-      label: isOpen ? "Estamos abiertos" : "Estamos cerrados",
+      label: isOpen ? "ABIERTO" : "CERRADO",
       detail,
       isDeliveryOpen,
       deliveryLabel: isDeliveryOpen
@@ -656,7 +656,7 @@ export function getBoisLiveStatus() {
   } catch {
     return {
       isOpen: true,
-      label: "Estamos abiertos",
+      label: "ABIERTO",
       detail: "Lun a Vie 8 a 00 hs · Sáb 10 a 15:30 y 19 a 00 hs · Dom 19 a 00 hs",
       isDeliveryOpen: true,
       deliveryLabel: "Delivery: 12 a 15:30 y 19 a 23:30 hs",
