@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/images/hero-bois.jpg", "destination": "https://bois-cantina.netlify.app/images/hero-bois.jpg" },
+    { "source": "/logos/:path*", "destination": "https://bois-cantina.netlify.app/logos/:path*" },
+    { "source": "/menus/:path*", "destination": "https://bois-cantina.netlify.app/menus/:path*" }
+  ]
+}
