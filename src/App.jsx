@@ -680,15 +680,6 @@ export default function App() {
                   <MessageCircle size={18} />
                   <span>Pedidos &amp; reservas</span>
                 </a>
-                <a
-                  href={SITE_CONFIG.contact.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-maps-inline"
-                >
-                  <Navigation size={17} />
-                  <span>Cómo llegar en Maps</span>
-                </a>
               </div>
             </div>
 
