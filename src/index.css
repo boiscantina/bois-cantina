@@ -252,11 +252,12 @@ a {
    ========================================================================== */
 .hero-section {
   position: relative;
-  min-height: 600px;
+  min-height: calc(100vh - 68px);
+  min-height: calc(100dvh - 68px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 48px 0 16px;
+  padding: clamp(24px, 4vh, 48px) 0 clamp(16px, 3vh, 28px);
   background-image: var(--hero-bg);
   background-size: cover;
   background-position: center 38%;
@@ -2626,10 +2627,12 @@ a {
     padding: 8px 11px;
   }
 
-  /* Hero en celular */
+  /* Hero en celular ocupa la pantalla completa */
   .hero-section {
-    padding: 28px 0 12px;
-    min-height: 490px;
+    padding: clamp(14px, 2.5vh, 24px) 0 clamp(12px, 2vh, 18px);
+    min-height: calc(100vh - 62px);
+    min-height: calc(100svh - 62px);
+    min-height: calc(100dvh - 62px);
   }
 
   .hero-logo-full {
