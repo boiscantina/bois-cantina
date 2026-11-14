@@ -697,24 +697,6 @@ export default function App() {
                 </a>
               </div>
             </div>
-
-            {/* Grilla de 3 Destacados: Tapeo/Lomitos/Especiales, Barra & Tragos, y Cafetería/Fit */}
-            <div className="extra-highlights-grid">
-              {SITE_CONFIG.highlightsCards.map((item, idx) => (
-                <div key={idx} className="extra-highlight-card">
-                  <div className="extra-highlight-top">
-                    <div className="extra-highlight-icon">
-                      {idx === 0 && <Utensils size={18} />}
-                      {idx === 1 && <Wine size={18} />}
-                      {idx === 2 && <Coffee size={18} />}
-                    </div>
-                    <span className="extra-highlight-badge">{item.badge}</span>
-                  </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
