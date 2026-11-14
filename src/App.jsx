@@ -366,7 +366,7 @@ export default function App() {
                             <div className="carousel-card-head">
                               <h3 className="carousel-card-title">{burger.name}</h3>
                               <span className="carousel-card-price">
-                                ${(basePrice / 1000).toFixed(basePrice % 1000 === 0 ? 0 : 1)}k
+                                Desde ${basePrice.toLocaleString('es-AR')}
                               </span>
                             </div>
                             <p className="carousel-card-desc">

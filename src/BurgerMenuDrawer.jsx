@@ -280,7 +280,7 @@ export default function BurgerMenuDrawer({
                                 {sizeKey.charAt(0).toUpperCase() + sizeKey.slice(1)}
                               </span>
                               <span className="size-price">
-                                ${(sizePrice / 1000).toFixed(sizePrice % 1000 === 0 ? 0 : 1)}k
+                                ${sizePrice.toLocaleString('es-AR')}
                               </span>
                             </button>
                           );
