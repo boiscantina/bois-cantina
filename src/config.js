@@ -134,9 +134,9 @@ export const SITE_CONFIG = {
     ],
   },
 
-  // Sección: Nuestras Smash Burgers (Foco 100% en técnica, insumos y personalización)
+  // Sección: Las Estrellas de la Casa (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
-    eyebrow: "NUESTRAS SMASH BURGERS",
+    eyebrow: "LAS ESTRELLAS DE LA CASA",
     title: "Burgers abundantes, jugosas y las más elogiadas",
     description:
       "Nada de medallones congelados. Usamos materia prima de calidad, cocinamos con técnica y detalle para que cada burger que probás salga tope de gama.",
