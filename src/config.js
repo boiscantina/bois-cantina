@@ -191,7 +191,7 @@ export const SITE_CONFIG = {
     {
       id: "cheeseburger",
       name: "Cheeseburger",
-      description: "Medallón de carne smasheada, queso cheddar fundido, mostaza, ketchup y cebolla picada.",
+      ingredientsSuffix: "queso cheddar fundido, mostaza, ketchup y cebolla picada.",
       badge: "Clásica",
       image: "/images/burgers/cheeseburger.jpg",
       prices: { simple: 15000, doble: 18500, triple: 21500 },
@@ -200,7 +200,7 @@ export const SITE_CONFIG = {
     {
       id: "bacon-bbq",
       name: "Bacon BBQ",
-      description: "Medallón de carne smasheada, queso cheddar fundido, bacon crocante y salsa barbacoa.",
+      ingredientsSuffix: "queso cheddar fundido, bacon crocante y salsa barbacoa.",
       badge: "Top Ventas",
       image: "/images/burgers/bacon-bbq.jpg",
       prices: { simple: 15500, doble: 19000, triple: 22000 },
@@ -209,7 +209,7 @@ export const SITE_CONFIG = {
     {
       id: "classic-bs",
       name: "Classic BS",
-      description: "Medallón de carne, cheddar, bacon, lechuga fresca, tomate, cebolla morada y salsa BS.",
+      ingredientsSuffix: "queso cheddar, bacon crocante, lechuga fresca, tomate, cebolla morada y salsa BS.",
       badge: "Fresca & Completa",
       image: "/images/burgers/classic-bs.jpg",
       prices: { simple: 15500, doble: 19500, triple: 22500 },
@@ -218,7 +218,7 @@ export const SITE_CONFIG = {
     {
       id: "onion-bs",
       name: "Onion BS",
-      description: "Medallón de carne smasheada con cebolla en la plancha (estilo Oklahoma) y cheddar fundido.",
+      ingredientsSuffix: "cebolla smasheada a la plancha (estilo Oklahoma) y queso cheddar fundido.",
       badge: "Oklahoma Style",
       image: "/images/burgers/onion-bs.jpg",
       prices: { simple: 15000, doble: 18500, triple: 21000 },
@@ -227,7 +227,7 @@ export const SITE_CONFIG = {
     {
       id: "crossover",
       name: "Crossover",
-      description: "Medallón de carne, abundante cebolla crispy dorada, bacon, cheddar y salsa Chick-fil-A.",
+      ingredientsSuffix: "abundante cebolla crispy dorada, bacon crocante, queso cheddar y salsa Chick-fil-A.",
       badge: "Ultra Crocante",
       image: "/images/burgers/crossover.jpg",
       prices: { simple: 16500, doble: 19500, triple: 23500 },
@@ -236,7 +236,7 @@ export const SITE_CONFIG = {
     {
       id: "big-bs",
       name: "Big BS",
-      description: "Medallón de carne, cheddar, pepinillos en vinagre, cebolla picada, lechuga y salsa BS especial.",
+      ingredientsSuffix: "queso cheddar, pepinillos en vinagre, cebolla picada, lechuga fresca y salsa BS especial.",
       badge: "Estilo Big Mac",
       image: "/images/burgers/big-bs.jpg",
       prices: { simple: 16000, doble: 19000, triple: 22000 },
@@ -245,7 +245,7 @@ export const SITE_CONFIG = {
     {
       id: "final-four",
       name: "Final Four",
-      description: "Cuatro quesos (cheddar, mozzarella, roquefort y provoleta), cebolla caramelizada, bacon y salsa Chick-fil-A.",
+      ingredientsSuffix: "cuatro quesos (cheddar, mozzarella, roquefort y provoleta), cebolla caramelizada, bacon crocante y salsa Chick-fil-A.",
       badge: "Bomba 4 Quesos",
       image: "/images/burgers/final-four.jpg",
       prices: { doble: 21000, triple: 24500 },
@@ -254,7 +254,7 @@ export const SITE_CONFIG = {
     {
       id: "mex-bois",
       name: "Mex Bois",
-      description: "Medallón de carne, cheddar, guacamole, salsa criolla, nachos totopos, bacon en cubos y mayonesa.",
+      ingredientsSuffix: "queso cheddar, guacamole casero, salsa criolla, nachos totopos, bacon en cubos y mayonesa.",
       badge: "Mex & Nachos",
       image: "/images/burgers/mex-bois.jpg",
       prices: { simple: 16500, doble: 19500, triple: 23500 },
@@ -263,7 +263,7 @@ export const SITE_CONFIG = {
     {
       id: "bacon-jam",
       name: "Bacon Jam",
-      description: "Medallón de carne, cheddar, mermelada casera de bacon, pepino y salsa BS.",
+      ingredientsSuffix: "queso cheddar fundido, mermelada casera de bacon, pepino agridulce y salsa BS.",
       badge: "Estrella de la Casa",
       image: "/images/burgers/bacon-jam.jpg",
       prices: { simple: 16000, doble: 19000, triple: 22500 },
@@ -272,7 +272,7 @@ export const SITE_CONFIG = {
     {
       id: "mvp",
       name: "MVP",
-      description: "Medallón de carne, cheddar, jamón cocido, tomate, lechuga fresca y huevo a la plancha.",
+      ingredientsSuffix: "queso cheddar, jamón cocido, tomate, lechuga fresca y huevo a la plancha.",
       badge: "Huevo & Jamón",
       image: "/images/burgers/mvp.jpg",
       prices: { simple: 16000, doble: 19000, triple: 22500 },
@@ -281,7 +281,7 @@ export const SITE_CONFIG = {
     {
       id: "rookie",
       name: "Rookie",
-      description: "Medallón de pollo crispy crocante, queso tybo, guacamole casero, tomate, lechuga y mayonesa.",
+      ingredientsSuffix: "queso tybo, guacamole casero, tomate, lechuga fresca y mayonesa.",
       badge: "Pollo Crispy",
       image: "/images/burgers/rookie.jpg",
       prices: { simple: 16500 },
@@ -290,7 +290,7 @@ export const SITE_CONFIG = {
     {
       id: "burger-semana",
       name: "Burger de la Semana",
-      description: "Edición especial rotativa: doble carne, morrones asados, queso fundido y alioli casero.",
+      ingredientsSuffix: "morrones asados, queso fundido y alioli casero.",
       badge: "Edición Especial",
       image: "/images/burgers/burger-de-la-semana.jpg",
       prices: { simple: 17000, doble: 21000, triple: 23000 },

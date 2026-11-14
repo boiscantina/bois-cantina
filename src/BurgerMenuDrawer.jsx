@@ -15,6 +15,27 @@ import {
 } from 'lucide-react';
 import { SITE_CONFIG } from './config';
 
+// Helper para armar la descripción dinámica según la cantidad de medallones seleccionada
+function formatBurgerIngredients(burger, size = 'doble') {
+  if (burger.id === 'rookie') {
+    return `1 medallón de pollo crispy crocante, ${burger.ingredientsSuffix}`;
+  }
+
+  const numWord =
+    size === 'triple'
+      ? '3 medallones de carne fresca'
+      : size === 'doble'
+      ? '2 medallones de carne fresca'
+      : '1 medallón de carne fresca';
+
+  if (burger.id === 'onion-bs') {
+    const verb = size === 'simple' ? 'smasheado' : 'smasheados';
+    return `${numWord} ${verb} con cebolla a la plancha (estilo Oklahoma) y queso cheddar fundido.`;
+  }
+
+  return `${numWord}, ${burger.ingredientsSuffix}`;
+}
+
 export default function BurgerMenuDrawer({
   isOpen,
   onClose,
@@ -241,7 +262,9 @@ export default function BurgerMenuDrawer({
                       </span>
                     </div>
 
-                    <p className="drawer-burger-desc">{burger.description}</p>
+                    <p className="drawer-burger-desc">
+                      {formatBurgerIngredients(burger, currentSize)}
+                    </p>
 
                     {/* SELECTOR DE TAMAÑO (SIMPLE / DOBLE / TRIPLE) */}
                     <div className="drawer-size-selector">

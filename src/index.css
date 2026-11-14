@@ -3120,14 +3120,10 @@ a {
 }
 
 .drawer-burger-desc {
-  font-size: 0.75rem;
+  font-size: 0.77rem;
   color: var(--bois-sage);
-  line-height: 1.35;
+  line-height: 1.4;
   margin-bottom: 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .drawer-size-selector {
@@ -3554,10 +3550,18 @@ a {
   .drawer-burger-img-box {
     width: 90px;
     height: 90px;
+    min-width: 90px;
+    flex-shrink: 0;
   }
 
   .drawer-burger-name {
     font-size: 0.95rem;
+  }
+
+  .drawer-burger-desc {
+    font-size: 0.74rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
   }
 
   .floating-cart-pill {
