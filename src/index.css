@@ -1478,30 +1478,377 @@ a {
 .burgers-header-cta-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .btn-burgers-main-cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: var(--bois-blue);
-  color: var(--bois-cream);
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding: 14px 28px;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-weight: 800;
+  padding: 16px 36px;
   border-radius: var(--radius-pill);
+  border: 2px solid rgba(187, 247, 208, 0.85);
+  cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(26, 72, 97, 0.24);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    0 12px 32px rgba(22, 163, 74, 0.45);
+  animation: ctaAttentionPulse 3s infinite ease-in-out;
   transition: all 0.22s ease;
 }
 
+@keyframes ctaAttentionPulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.45),
+      0 10px 28px rgba(22, 163, 74, 0.42),
+      0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.55),
+      0 14px 36px rgba(22, 163, 74, 0.6),
+      0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
 .btn-burgers-main-cta:hover {
-  background: var(--bois-blue-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(26, 72, 97, 0.32);
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  transform: translateY(-3px) scale(1.02);
+  border-color: #ffffff;
   color: #ffffff;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    0 16px 40px rgba(22, 163, 74, 0.65);
+}
+
+.btn-burgers-main-cta svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.btn-burgers-main-cta:hover svg.arrow-icon {
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   LAYOUT SPLIT: TEXTO A LA IZQUIERDA + CARRUSEL A LA DERECHA
+   ========================================================================== */
+.burgers-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.burgers-split-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.burgers-split-title {
+  text-align: left;
+  margin: 10px 0 16px;
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.burgers-split-lead {
+  text-align: left;
+  margin: 0 0 24px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.burger-specs-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.burger-spec-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(26, 72, 97, 0.12);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.burger-spec-row .burger-spec-emoji {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.burger-spec-text-group {
+  flex: 1;
+}
+
+.burger-spec-row strong {
+  color: var(--bois-blue-dark);
+  font-weight: 700;
+}
+
+.burger-spec-desc {
+  color: #334155;
+}
+
+.burgers-split-cta-wrap {
+  margin-top: 4px;
+  width: 100%;
+}
+
+/* CARRUSEL DE BURGERS A LA DERECHA */
+.burgers-carousel-wrap {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.burgers-carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.burgers-carousel-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--bois-blue-dark);
+  background: #ffffff;
+  border: 1px solid rgba(26, 72, 97, 0.18);
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.burgers-carousel-tag svg {
+  color: #ea580c;
+}
+
+.burgers-carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-carousel-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(26, 72, 97, 0.2);
+  color: var(--bois-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.18s ease;
+}
+
+.btn-carousel-arrow:hover {
+  background: #16a34a;
+  border-color: #86efac;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.burgers-carousel-track-container {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(22, 163, 74, 0.5) transparent;
+  padding: 6px 4px 14px;
+}
+
+.burgers-carousel-track-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.burgers-carousel-track-container::-webkit-scrollbar-thumb {
+  background: rgba(22, 163, 74, 0.45);
+  border-radius: 999px;
+}
+
+.burgers-carousel-track {
+  display: flex;
+  gap: 16px;
+}
+
+.burger-carousel-card {
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1.5px solid rgba(26, 72, 97, 0.14);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.burger-carousel-card:hover {
+  transform: translateY(-5px);
+  border-color: #16a34a;
+  box-shadow: 0 16px 36px rgba(22, 163, 74, 0.18);
+}
+
+.carousel-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 195px;
+  overflow: hidden;
+  background: #091720;
+}
+
+.carousel-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.burger-carousel-card:hover .carousel-card-img {
+  transform: scale(1.06);
+}
+
+.carousel-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  color: #fef08a;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(254, 240, 138, 0.35);
+}
+
+.carousel-card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.carousel-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.carousel-card-title {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--bois-blue-dark);
+  line-height: 1.2;
+}
+
+.carousel-card-price {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+.carousel-card-desc {
+  font-size: 0.77rem;
+  color: #475569;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-carousel-card-action {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  color: #15803d;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.burger-carousel-card:hover .btn-carousel-card-action {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #86efac;
+}
+
+.burgers-carousel-footer {
+  text-align: center;
+}
+
+.carousel-footer-hint {
+  font-size: 0.76rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .burgers-split-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .burgers-split-cta-wrap .btn-burgers-main-cta {
+    width: 100%;
+  }
+
+  .burger-carousel-card {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .carousel-card-img-wrap {
+    height: 180px;
+  }
 }
 
 .section-eyebrow {

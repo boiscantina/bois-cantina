@@ -25,6 +25,7 @@ import {
   ThumbsUp,
   Edit3,
   ShoppingBag,
+  ArrowRight,
 } from 'lucide-react';
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
@@ -43,6 +44,14 @@ export default function App() {
   );
   const [userLikedReviews, setUserLikedReviews] = useState({});
   const reviewsTrackRef = useRef(null);
+  const burgerCarouselRef = useRef(null);
+
+  const scrollBurgerCarousel = (direction) => {
+    if (burgerCarouselRef.current) {
+      const scrollAmount = direction === 'left' ? -290 : 290;
+      burgerCarouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -257,77 +266,132 @@ export default function App() {
           </div>
         </section>
 
-        {/* 2. DESEO VISUAL INMEDIATO: HAMBURGUESAS TOPE DE GAMA */}
-        <section className="burgers-section" aria-label="Hamburguesas Tope de Gama">
+        {/* 2. SECCIÓN BURGERS: LAYOUT SPLIT CON TEXTO A LA IZQUIERDA Y CARRUSEL A LA DERECHA */}
+        <section id="burgers" className="burgers-section" aria-label="Hamburguesas Tope de Gama">
           <div className="container">
-            <div className="section-header burgers-header">
-              <span className="section-eyebrow">
-                <Flame size={14} /> {SITE_CONFIG.burgersSection.eyebrow}
-              </span>
-              <h2 className="section-title">{SITE_CONFIG.burgersSection.title}</h2>
-              <p className="section-description burgers-lead">
-                {SITE_CONFIG.burgersSection.description}
-              </p>
+            <div className="burgers-split-layout">
+              {/* COLUMNA IZQUIERDA: CONTENIDO Y CTA PRINCIPAL */}
+              <div className="burgers-split-content">
+                <span className="section-eyebrow">
+                  <Flame size={14} /> {SITE_CONFIG.burgersSection.eyebrow}
+                </span>
+                <h2 className="section-title burgers-split-title">{SITE_CONFIG.burgersSection.title}</h2>
+                <p className="section-description burgers-split-lead">
+                  {SITE_CONFIG.burgersSection.description}
+                </p>
 
-              <div className="burger-specs-pills">
-                {SITE_CONFIG.burgersSection.specs.map((spec, idx) => (
-                  <span key={idx} className="burger-spec-pill">
-                    <span className="burger-spec-emoji">{spec.emoji}</span>
-                    <strong className="burger-spec-label">{spec.label}:</strong>
-                    <span className="burger-spec-text">{spec.text}</span>
-                  </span>
-                ))}
-              </div>
-
-              {/* Botón Ver menú y pedir ahora (Abre el Menú Lateral de Burgers) */}
-              <div className="burgers-header-cta-wrap">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setDrawerFocusBurgerId(null);
-                    setIsBurgerDrawerOpen(true);
-                  }}
-                  className="btn-burgers-main-cta"
-                  aria-label="Abrir menú de burgers y pedir online"
-                >
-                  <Utensils size={19} />
-                  <span>{SITE_CONFIG.burgersSection.ctaText}</span>
-                  <ArrowUpRight size={17} />
-                </button>
-              </div>
-            </div>
-
-            <div className="burgers-grid">
-              {SITE_CONFIG.starBurgers.map((burger) => (
-                <article key={burger.id} className="burger-card">
-                  <div className="burger-img-wrap">
-                    <img
-                      src={burger.image}
-                      alt={`${burger.name} — Smash Burger en BOIS Mar del Plata`}
-                      loading="lazy"
-                      className="burger-img"
-                    />
-                    <span className="burger-badge">{burger.badge}</span>
-                    <div className="burger-img-bottom-bar">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setDrawerFocusBurgerId(burger.id);
-                          setIsBurgerDrawerOpen(true);
-                        }}
-                        className="btn-burger-wa"
-                      >
-                        <MessageCircle size={16} />
-                        <span>{burger.ctaLabel || `Pedir ${burger.name}`}</span>
-                      </button>
+                <div className="burger-specs-vertical">
+                  {SITE_CONFIG.burgersSection.specs.map((spec, idx) => (
+                    <div key={idx} className="burger-spec-row">
+                      <span className="burger-spec-emoji">{spec.emoji}</span>
+                      <div className="burger-spec-text-group">
+                        <strong className="burger-spec-label">{spec.label}: </strong>
+                        <span className="burger-spec-desc">{spec.text}</span>
+                      </div>
                     </div>
+                  ))}
+                </div>
+
+                {/* Botón Ver menú y pedir ahora (Abre el Menú Lateral de Burgers) */}
+                <div className="burgers-split-cta-wrap">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDrawerFocusBurgerId(null);
+                      setIsBurgerDrawerOpen(true);
+                    }}
+                    className="btn-burgers-main-cta"
+                    aria-label="Abrir menú de burgers y pedir online"
+                  >
+                    <Utensils size={20} className="cta-icon" />
+                    <span>{SITE_CONFIG.burgersSection.ctaText}</span>
+                    <ArrowUpRight size={19} className="arrow-icon" />
+                  </button>
+                </div>
+              </div>
+
+              {/* COLUMNA DERECHA: CARRUSEL DE TODAS LAS BURGERS */}
+              <div className="burgers-carousel-wrap">
+                <div className="burgers-carousel-header">
+                  <span className="burgers-carousel-tag">
+                    <Flame size={13} />
+                    <span>Nuestra Carta ({SITE_CONFIG.allBurgers.length} Variedades)</span>
+                  </span>
+                  <div className="burgers-carousel-nav">
+                    <button
+                      type="button"
+                      onClick={() => scrollBurgerCarousel('left')}
+                      className="btn-carousel-arrow"
+                      aria-label="Burger anterior"
+                    >
+                      <ChevronLeft size={18} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => scrollBurgerCarousel('right')}
+                      className="btn-carousel-arrow"
+                      aria-label="Burger siguiente"
+                    >
+                      <ChevronRight size={18} />
+                    </button>
                   </div>
-                  <div className="burger-body">
-                    <h3 className="burger-title">{burger.name}</h3>
-                    <p className="burger-desc">{burger.description}</p>
+                </div>
+
+                {/* Track horizontal scrolleable de las 12 burgers con fotos reales */}
+                <div className="burgers-carousel-track-container" ref={burgerCarouselRef}>
+                  <div className="burgers-carousel-track">
+                    {SITE_CONFIG.allBurgers.map((burger) => {
+                      const basePrice = Object.values(burger.prices)[0];
+                      return (
+                        <article
+                          key={burger.id}
+                          className="burger-carousel-card"
+                          onClick={() => {
+                            setDrawerFocusBurgerId(burger.id);
+                            setIsBurgerDrawerOpen(true);
+                          }}
+                        >
+                          <div className="carousel-card-img-wrap">
+                            <img
+                              src={burger.image}
+                              alt={burger.name}
+                              loading="lazy"
+                              className="carousel-card-img"
+                            />
+                            {burger.badge && (
+                              <span className="carousel-card-badge">{burger.badge}</span>
+                            )}
+                          </div>
+                          <div className="carousel-card-body">
+                            <div className="carousel-card-head">
+                              <h3 className="carousel-card-title">{burger.name}</h3>
+                              <span className="carousel-card-price">
+                                ${(basePrice / 1000).toFixed(basePrice % 1000 === 0 ? 0 : 1)}k
+                              </span>
+                            </div>
+                            <p className="carousel-card-desc">
+                              {burger.ingredientsSuffix}
+                            </p>
+                            <button
+                              type="button"
+                              className="btn-carousel-card-action"
+                            >
+                              <span>Pedir / Ver tamaños</span>
+                              <ArrowRight size={14} />
+                            </button>
+                          </div>
+                        </article>
+                      );
+                    })}
                   </div>
-                </article>
-              ))}
+                </div>
+
+                <div className="burgers-carousel-footer">
+                  <span className="carousel-footer-hint">
+                    👈 Deslizá para ver las 12 opciones · Todas salen con fritas 👉
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
