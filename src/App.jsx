@@ -24,8 +24,10 @@ import {
   ChevronRight,
   ThumbsUp,
   Edit3,
+  ShoppingBag,
 } from 'lucide-react';
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
+import BurgerMenuDrawer from './BurgerMenuDrawer';
 
 export default function App() {
   const mainWhatsAppUrl = getWhatsAppUrl();
@@ -33,6 +35,9 @@ export default function App() {
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [activeReviewIdx, setActiveReviewIdx] = useState(0);
   const [expandedReviewIds, setExpandedReviewIds] = useState({});
+  const [isBurgerDrawerOpen, setIsBurgerDrawerOpen] = useState(false);
+  const [burgerCart, setBurgerCart] = useState([]);
+  const [drawerFocusBurgerId, setDrawerFocusBurgerId] = useState(null);
   const [helpfulCounts, setHelpfulCounts] = useState(() =>
     SITE_CONFIG.reviews.reduce((acc, r) => ({ ...acc, [r.id]: r.helpfulCount || 4 }), {})
   );
@@ -274,18 +279,21 @@ export default function App() {
                 ))}
               </div>
 
-              {/* Botón Ver menú y pedir ahora */}
+              {/* Botón Ver menú y pedir ahora (Abre el Menú Lateral de Burgers) */}
               <div className="burgers-header-cta-wrap">
-                <a
-                  href={getWhatsAppUrl(SITE_CONFIG.burgersSection.ctaPrompt)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDrawerFocusBurgerId(null);
+                    setIsBurgerDrawerOpen(true);
+                  }}
                   className="btn-burgers-main-cta"
+                  aria-label="Abrir menú de burgers y pedir online"
                 >
-                  <MessageCircle size={19} />
+                  <Utensils size={19} />
                   <span>{SITE_CONFIG.burgersSection.ctaText}</span>
                   <ArrowUpRight size={17} />
-                </a>
+                </button>
               </div>
             </div>
 
@@ -301,15 +309,17 @@ export default function App() {
                     />
                     <span className="burger-badge">{burger.badge}</span>
                     <div className="burger-img-bottom-bar">
-                      <a
-                        href={getWhatsAppUrl(burger.whatsappPrompt)}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDrawerFocusBurgerId(burger.id);
+                          setIsBurgerDrawerOpen(true);
+                        }}
                         className="btn-burger-wa"
                       >
                         <MessageCircle size={16} />
                         <span>{burger.ctaLabel || `Pedir ${burger.name}`}</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                   <div className="burger-body">
@@ -996,6 +1006,34 @@ export default function App() {
           <span>Cómo llegar</span>
         </a>
       </div>
+
+      {/* PASTILLA FLOTANTE DEL PEDIDO (APARECE CUANDO HAY BURGERS AGREGADAS Y EL MENÚ ESTÁ CERRADO) */}
+      {burgerCart.length > 0 && !isBurgerDrawerOpen && (
+        <button
+          type="button"
+          className="floating-cart-pill"
+          onClick={() => setIsBurgerDrawerOpen(true)}
+          aria-label="Ver mi pedido acumulado"
+        >
+          <div className="floating-cart-badge">
+            <ShoppingBag size={18} />
+            <span>{burgerCart.reduce((s, i) => s + i.quantity, 0)}</span>
+          </div>
+          <span className="floating-cart-text">Ver mi pedido</span>
+          <span className="floating-cart-price">
+            ${burgerCart.reduce((s, i) => s + i.price * i.quantity, 0).toLocaleString('es-AR')}
+          </span>
+        </button>
+      )}
+
+      {/* MENÚ LATERAL DE BURGERS (DRAWER OFF-CANVAS DESDE LA DERECHA) */}
+      <BurgerMenuDrawer
+        isOpen={isBurgerDrawerOpen}
+        onClose={() => setIsBurgerDrawerOpen(false)}
+        cart={burgerCart}
+        setCart={setBurgerCart}
+        selectedBurgerIdToFocus={drawerFocusBurgerId}
+      />
     </div>
   );
 }
