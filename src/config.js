@@ -247,13 +247,14 @@ export const SITE_CONFIG = {
       "Podés reservar el lugar para festejar tu cumple con buena música, tragos y una ambientación cálida (salón & deck exterior), o adelantar tu pedido por WhatsApp.",
   },
 
-  // Sobre Nosotros (Sintetizado para lectura rápida)
+  // Sobre Nosotros (Debajo de los menús PDF)
   about: {
     eyebrow: "Tucumán esq. Castelli (2011) · Mar del Plata",
     title:
-      "Buena música, ambientación cálida y el punto de encuentro del barrio.",
+      "Tu punto de encuentro a 5 cuadras del Paseo Aldrey, sin importar la hora ni el plan.",
     paragraphs: [
-      "En BOIS cuidamos tanto la cocina como la onda del lugar: buena música, ambientación cálida y atención de amigos a 5 cuadras del Paseo Aldrey. Te esperamos desde la mañana con café boliviano Fruto Negro y opciones fit, al mediodía con menú ejecutivo y a la noche con nuestras Smash Burgers, barra de tragos, eventos deportivos y reservas para festejar cumpleaños.",
+      "Sabemos lo que es no tener ganas de cocinar, buscar un lugar donde todos queden conformes o necesitar un buen café para activar el día. Por eso en BOIS tenés todo resuelto: desayunos y meriendas para frenar un poco, menú ejecutivo abundante para salvar tus mediodías y las mejores Smash Burgers, tragos y platos de la casa para cortar la semana.",
+      "Buena música, ambiente cálido y la mesa lista para venir con amigos o festejar tu cumple.",
     ],
     features: [
       {
