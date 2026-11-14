@@ -274,8 +274,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* 2. DESEO VISUAL INMEDIATO: LAS BURGERS MÁS PEDIDAS & PILARES GASTRONÓMICOS */}
-        <section className="burgers-section" aria-label="Las Smash Burgers más pedidas">
+        {/* 2. DESEO VISUAL INMEDIATO: ESTRELLAS DE LA CASA & PILARES GASTRONÓMICOS */}
+        <section className="burgers-section" aria-label="Estrellas de la casa">
           <div className="container">
             <div className="section-header burgers-header">
               <span className="section-eyebrow">

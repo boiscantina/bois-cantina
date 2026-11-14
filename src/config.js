@@ -130,10 +130,10 @@ export const SITE_CONFIG = {
     ],
   },
 
-  // Sección: Las Burgers más pedidas (Foco 100% en técnica, insumos y personalización)
+  // Sección: Estrellas de la casa (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
     eyebrow: "Nuestro Producto Estrella",
-    title: "Las Burgers más pedidas",
+    title: "Estrellas de la casa",
     description:
       "Orden, técnica y limpieza: hacemos burgers ricas, abundantes y con ingredientes de primera.",
     specs: [
