@@ -606,12 +606,51 @@ export default function App() {
           </div>
         </section>
 
-        {/* FRANJA DE MARCA: SOLO LAS 2 FRASES CLAVE */}
-        <section className="intro-story-section" aria-label="Nuestro espíritu en el barrio">
+        {/* FRANJA DE MARCA: ESPECIALISTAS EN BUENOS PLANES + MAPA DE GOOGLE */}
+        <section className="intro-story-section" aria-label="Especialistas en buenos planes y ubicación">
           <div className="container">
             <div className="intro-banner-card">
-              <h2 className="intro-story-title">{SITE_CONFIG.introSection.title}</h2>
-              <p className="intro-story-lead">{SITE_CONFIG.introSection.lead}</p>
+              <div className="intro-banner-header">
+                <span className="intro-location-tag">
+                  <MapPin size={15} />
+                  <span>{SITE_CONFIG.introSection.mapAddressLabel} · {SITE_CONFIG.introSection.mapZoneLabel}</span>
+                </span>
+                <h2 className="intro-story-title">{SITE_CONFIG.introSection.title}</h2>
+                <p className="intro-story-lead">{SITE_CONFIG.introSection.lead}</p>
+              </div>
+
+              {/* Mapa de Google Maps */}
+              <div className="intro-map-wrapper">
+                <iframe
+                  title="Ubicación de BOIS Cantina en Google Maps"
+                  src={SITE_CONFIG.introSection.mapEmbedUrl}
+                  width="100%"
+                  height="340"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="intro-map-iframe"
+                />
+                <div className="intro-map-overlay-footer">
+                  <div className="intro-map-info">
+                    <span className="map-badge-pin">
+                      <MapPin size={14} />
+                      <strong>Castelli 2011</strong> (esq. Tucumán)
+                    </span>
+                    <span className="map-badge-hint">A 5 cuadras del Paseo Aldrey · Mar del Plata</span>
+                  </div>
+                  <a
+                    href={SITE_CONFIG.contact.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-open-maps"
+                  >
+                    <span>Cómo llegar en Google Maps</span>
+                    <Navigation size={14} />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>

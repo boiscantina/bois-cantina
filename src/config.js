@@ -75,6 +75,10 @@ export const SITE_CONFIG = {
   introSection: {
     title: "Especialistas en buenos planes y amigos de todo el barrio.",
     lead: "El punto de encuentro en el barrio, de la mañana a la noche.",
+    mapEmbedUrl:
+      "https://maps.google.com/maps?q=Castelli+2011,+Mar+del+Plata,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    mapAddressLabel: "Tucumán esq. Castelli (Castelli 2011)",
+    mapZoneLabel: "A 5 cuadras del Paseo Aldrey · Mar del Plata",
     ctaReservationText: "Reservá tu mesa para hoy",
     ctaReservationPrompt:
       "¡Hola BOIS! Vi su web y quiero reservar una mesa para hoy.",
@@ -130,18 +134,18 @@ export const SITE_CONFIG = {
     ],
   },
 
-  // Sección: Estrellas de la casa (Foco 100% en técnica, insumos y personalización)
+  // Sección: Hamburguesas ricas & abundantes (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
-    eyebrow: "Nuestro Producto Estrella",
-    title: "Estrellas de la casa",
+    eyebrow: "Estrellas de la casa",
+    title: "Hamburguesas ricas & abundantes con ingredientes de primera",
     description:
-      "Orden, técnica y limpieza: hacemos burgers ricas, abundantes y con ingredientes de primera.",
+      "En nuestra cocina trabajamos con orden, técnica y limpieza con mucha atención al detalle para que cada burger que pruebas sea tope de gama.",
     specs: [
-      "Blend Tapa de Asado & Roast Beef (110gr)",
-      "Pan de Papa Brioche con Cúrcuma",
-      "Opción Pan Sin TACC & Medallón Vegano",
-      "Papas Fritas Crocantes («Un Mil»)",
-      "Promos Todos los Días",
+      "Blend propio de tapa de asado y roastbeef",
+      "Pan de papa estilo brioche con cúrcuma",
+      "Las papas fritas más elogiadas",
+      "Promos todos los días",
+      "Opción de pan sin TACC & medallón vegano",
     ],
   },
 
