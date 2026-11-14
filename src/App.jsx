@@ -366,7 +366,8 @@ export default function App() {
                             <div className="carousel-card-head">
                               <h3 className="carousel-card-title">{burger.name}</h3>
                               <span className="carousel-card-price">
-                                Desde ${basePrice.toLocaleString('es-AR')}
+                                <span className="price-label">Desde</span>
+                                <span className="price-value">${basePrice.toLocaleString('es-AR')}</span>
                               </span>
                             </div>
                             <p className="carousel-card-desc">
