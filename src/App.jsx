@@ -230,17 +230,6 @@ export default function App() {
                     <FileDown size={16} />
                     <span>Ver Menús PDF (3)</span>
                   </a>
-
-                  <a
-                    href={SITE_CONFIG.contact.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary-hero btn-maps-hero"
-                    title="Abrir navegación GPS en Google Maps o Waze hacia Tucumán 2901 (esq. Castelli)"
-                  >
-                    <Navigation size={16} />
-                    <span>{SITE_CONFIG.contact.ctaMapsText}</span>
-                  </a>
                 </div>
               </div>
             </div>

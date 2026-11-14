@@ -514,11 +514,14 @@ a {
     0 16px 34px rgba(22, 163, 74, 0.52);
 }
 
-/* CTAs Secundarios agrupados en fila horizontal más compacta debajo */
+/* Botón secundario del Hero */
 .hero-secondary-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.hero-secondary-row .btn-secondary-hero {
+  flex: 1;
 }
 
 .btn-secondary-hero {
@@ -2678,8 +2681,7 @@ a {
   }
 
   .hero-secondary-row {
-    grid-template-columns: 1.15fr 1fr;
-    gap: 8px;
+    width: 100%;
   }
 
   .btn-secondary-hero {
