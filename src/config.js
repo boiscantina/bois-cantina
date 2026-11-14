@@ -151,19 +151,18 @@ export const SITE_CONFIG = {
     ctaPrompt: "¡Hola BOIS! Quiero ver el menú y hacer un pedido de burgers 🍔🍟",
   },
 
-  // Las 3 Hamburguesas Destacadas (con ingredientes reales de la carta oficial y todas salen con papas)
+  // Las 3 Hamburguesas Destacadas (con fotos 100% reales de BOIS)
   starBurgers: [
     {
-      id: "combo-bacon-bbq-cheeseburger",
-      name: "Bacon BBQ + Cheeseburger",
-      ctaLabel: "Pedir Combo",
-      badge: "Combo más pedido de la semana",
+      id: "bacon-bbq",
+      name: "Bacon BBQ",
+      ctaLabel: "Pedir Bacon BBQ",
+      badge: "La más pedida",
       description:
-        "La dupla imbatible: una Bacon BBQ (medallón de carne, cheddar fundido, bacon crocante y barbacoa) + una Cheeseburger clásica (medallón de carne, cheddar, mostaza, ketchup y cebolla picada). Ambas salen con papas.",
-      image:
-        "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=800&q=80",
+        "Doble smash burger de tapa de asado y roast beef, doble cheddar fundido, panceta crocante y salsa barbacoa. Sale con papas fritas.",
+      image: "/images/burgers/bacon-bbq.jpg",
       whatsappPrompt:
-        "¡Hola BOIS! Quiero pedir el combo de Bacon BBQ + Cheeseburger con papas 🍔🍟",
+        "¡Hola BOIS! Quiero pedir una Burger Bacon BBQ con papas 🍔🥓",
     },
     {
       id: "bacon-jam",
@@ -171,20 +170,18 @@ export const SITE_CONFIG = {
       ctaLabel: "Pedir Bacon Jam",
       badge: "Estrella de la casa",
       description:
-        "Equilibrio adictivo entre dulce, ahumado y ácido: medallón de carne smasheado, cheddar fundido, nuestra mermelada casera de bacon, pepino y la exclusiva salsa BS. Sale con papas.",
-      image:
-        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+        "Equilibrio adictivo entre dulce, ahumado y ácido: medallón smasheado, cheddar fundido, mermelada casera de bacon, pepino y salsa BS. Sale con papas.",
+      image: "/images/burgers/bacon-jam.jpg",
       whatsappPrompt: "¡Hola BOIS! Quiero pedir una Burger Bacon Jam con papas 🍔🥓",
     },
     {
       id: "final-four",
       name: "Final Four",
       ctaLabel: "Pedir Final Four",
-      badge: "Para amantes del roque",
+      badge: "Bomba 4 quesos",
       description:
-        "Una bomba de cuatro quesos (cheddar, mozzarella, roquefort intenso y provoleta) con cebolla caramelizada, bacon crocante y salsa Chick-fil-A. Disponible doble o triple y sale con papas.",
-      image:
-        "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80",
+        "Para amantes del queso: blend de cuatro quesos (cheddar, mozzarella, roquefort y provoleta) con cebolla caramelizada, bacon crocante y salsa. Sale con papas.",
+      image: "/images/burgers/final-four.jpg",
       whatsappPrompt: "¡Hola BOIS! Quiero pedir una Burger Final Four con papas 🧀🍔",
     },
   ],
