@@ -208,7 +208,7 @@ export default function App() {
                 <span>Pedí online o reservá en segundos · Atención directa</span>
               </p>
 
-              {/* CTA Principal (Foco absoluto) + 2 CTAs Secundarios compactos en fila horizontal */}
+              {/* CTA Principal (Foco absoluto) */}
               <div className="hero-actions">
                 <a
                   href={mainWhatsAppUrl}
@@ -220,17 +220,6 @@ export default function App() {
                   <span>{SITE_CONFIG.contact.ctaPrimaryText}</span>
                   <ArrowUpRight size={18} className="arrow-icon" />
                 </a>
-
-                <div className="hero-secondary-row">
-                  <a
-                    href="#menus"
-                    onClick={scrollToSection('menus')}
-                    className="btn-secondary-hero"
-                  >
-                    <FileDown size={16} />
-                    <span>Ver Menús PDF (3)</span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
