@@ -194,11 +194,11 @@ export default function App() {
               />
 
               <h1 className="hero-title">
-                <span className="hero-title-line">
-                  Las mejores <em>burgers</em> de Mar del Plata
-                </span>
-                <span className="hero-title-line hero-title-subline">
+                <span className="hero-title-pretitle">
                   Cafetería, Cantina &amp; Hamburguesería
+                </span>
+                <span className="hero-title-main">
+                  Las mejores <em>burgers</em> de Mar del Plata
                 </span>
               </h1>
 
