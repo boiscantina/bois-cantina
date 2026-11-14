@@ -155,7 +155,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-header-secondary hide-mobile"
-              title="Abrir Google Maps con indicaciones a Tucumán esq. Castelli (Castelli 2011), Mar del Plata"
+              title="Abrir Google Maps con indicaciones a Tucumán 2901 (esq. Castelli), Mar del Plata"
             >
               <Navigation size={15} />
               <span>Cómo llegar</span>
@@ -236,7 +236,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-secondary-hero btn-maps-hero"
-                    title="Abrir navegación GPS en Google Maps o Waze hacia Tucumán esq. Castelli (2011)"
+                    title="Abrir navegación GPS en Google Maps o Waze hacia Tucumán 2901 (esq. Castelli)"
                   >
                     <Navigation size={16} />
                     <span>{SITE_CONFIG.contact.ctaMapsText}</span>
@@ -636,7 +636,7 @@ export default function App() {
                   <div className="intro-map-info">
                     <span className="map-badge-pin">
                       <MapPin size={14} />
-                      <strong>Castelli 2011</strong> (esq. Tucumán)
+                      <strong>Tucumán 2901</strong> (esq. Castelli)
                     </span>
                     <span className="map-badge-hint">A 5 cuadras del Paseo Aldrey · Mar del Plata</span>
                   </div>
@@ -1019,7 +1019,7 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
           className="floating-maps-btn"
-          aria-label="Cómo llegar a Castelli 2011, Mar del Plata en Google Maps"
+          aria-label="Cómo llegar a Tucumán 2901, Mar del Plata en Google Maps"
         >
           <MapPin size={19} />
           <span>Cómo llegar</span>

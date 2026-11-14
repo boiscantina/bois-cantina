@@ -10,9 +10,9 @@ export const SITE_CONFIG = {
   city: "Mar del Plata",
   neighborhood: "Zona Paseo Aldrey (a 5 cuadras)",
   addressFull:
-    "Tucumán esquina Castelli (Castelli 2011) · Zona Paseo Aldrey, Mar del Plata",
+    "Tucumán 2901 (esq. Castelli) · Zona Paseo Aldrey, Mar del Plata",
   addressShort:
-    "Tucumán esq. Castelli (2011) · A 5 cuadras de Paseo Aldrey",
+    "Tucumán 2901 (esq. Castelli) · A 5 cuadras de Paseo Aldrey",
   logos: {
     fullBlue: "/logos/bois-azul.png",
     fullCream: "/logos/bois-crema.png",
@@ -61,7 +61,7 @@ export const SITE_CONFIG = {
     whatsappPhone: "5492234251674", // +54 9 2234 25-1674 en formato internacional wa.me
     whatsappDisplay: "+54 9 2234 25-1674",
     googleMapsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Castelli+2011,+Mar+del+Plata,+Provincia+de+Buenos+Aires,+Argentina",
+      "https://www.google.com/maps/dir/?api=1&destination=Tucum%C3%A1n+2901,+Mar+del+Plata,+Provincia+de+Buenos+Aires,+Argentina",
     defaultWhatsappMessage:
       "¡Hola BOIS! Vi su web y quiero hacer un pedido / reservar una mesa.",
     ctaPrimaryText: "Pedidos & reservas por WhatsApp",
@@ -76,8 +76,8 @@ export const SITE_CONFIG = {
     title: "Especialistas en buenos planes y amigos de todo el barrio.",
     lead: "El punto de encuentro en el barrio, de la mañana a la noche.",
     mapEmbedUrl:
-      "https://maps.google.com/maps?q=Castelli+2011,+Mar+del+Plata,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed",
-    mapAddressLabel: "Tucumán esq. Castelli (Castelli 2011)",
+      "https://maps.google.com/maps?q=Tucuman+2901,+Mar+del+Plata,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    mapAddressLabel: "Tucumán 2901 (esq. Castelli)",
     mapZoneLabel: "A 5 cuadras del Paseo Aldrey · Mar del Plata",
     ctaReservationText: "Reservá tu mesa para hoy",
     ctaReservationPrompt:
@@ -249,7 +249,7 @@ export const SITE_CONFIG = {
 
   // Sobre Nosotros (Debajo de los menús PDF)
   about: {
-    eyebrow: "Tucumán esq. Castelli (2011) · Mar del Plata",
+    eyebrow: "Tucumán 2901 (esq. Castelli) · Mar del Plata",
     title:
       "Tu punto de encuentro a 5 cuadras del Paseo Aldrey, sin importar la hora ni el plan.",
     paragraphs: [
@@ -288,7 +288,7 @@ export const SITE_CONFIG = {
     },
     {
       q: "¿Dónde están ubicados y cómo reservo o hago un pedido?",
-      a: "En Tucumán esquina Castelli (Castelli 2011), a 5 cuadras del Paseo Aldrey, Mar del Plata. Pedidos y reservas únicamente por WhatsApp al +54 9 2234 25-1674.",
+      a: "En Tucumán 2901 (esquina Castelli), a 5 cuadras del Paseo Aldrey, Mar del Plata. Pedidos y reservas únicamente por WhatsApp al +54 9 2234 25-1674.",
     },
     {
       q: "¿Tienen hamburguesas Sin TACC u opciones veganas?",
