@@ -362,10 +362,10 @@ export const SITE_CONFIG = {
   about: {
     eyebrow: "Tucumán esq. Castelli · Mar del Plata",
     title:
-      "Tu punto de encuentro a 5 cuadras del Paseo Aldrey, sin importar la hora ni el plan.",
+      "Olvidate de cocinar o de dar vueltas buscando un lugar donde todos queden conformes.",
     paragraphs: [
-      "Sabemos lo que es no tener ganas de cocinar, buscar un lugar donde todos queden conformes o necesitar un buen café para activar el día. Por eso en BOIS tenés todo resuelto: desayunos y meriendas para frenar un poco, menú ejecutivo abundante para salvar tus mediodías y las mejores Smash Burgers, tragos y platos de la casa para cortar la semana.",
-      "Buena música, ambiente cálido y la mesa lista para venir con amigos o festejar tu cumple.",
+      "En BOIS resolvés todo el día: arrancá o cortá la tarde con café, tentaciones y opciones saludables; salvá tus mediodías de lunes a viernes con nuestro menú ejecutivo desde las 11 hs; y quedate a la noche en modo barcito y cantina con tapeos, sánguches, tragos y buena música.",
+      "Vení solo, con amigos o a festejar tu cumple. Acá siempre hay buena onda.",
     ],
     features: [
       {
