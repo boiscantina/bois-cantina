@@ -631,14 +631,13 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Fila de Calificación: 5 Estrellas Google + Fecha Relativa */}
+                    {/* Fila de Calificación: 5 Estrellas Google */}
                     <div className="review-rating-bar">
                       <div className="review-stars-google" aria-label="5 de 5 estrellas">
                         {Array.from({ length: rev.rating }).map((_, sIdx) => (
                           <Star key={sIdx} size={15} fill="#FBBC04" color="#FBBC04" />
                         ))}
                       </div>
-                      <span className="review-relative-date">{rev.date}</span>
                     </div>
 
                     {/* Píldora de Frase Destacada */}
