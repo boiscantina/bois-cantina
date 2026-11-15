@@ -27,9 +27,11 @@ import {
   Wheat,
   Leaf,
   BadgePercent,
+  Menu,
 } from 'lucide-react';
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
+import SiteNavDrawer from './SiteNavDrawer';
 
 function FriesIcon({ size = 18, className = "" }) {
   return (
@@ -76,6 +78,7 @@ export default function App() {
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [activeReviewIdx, setActiveReviewIdx] = useState(0);
   const [expandedReviewIds, setExpandedReviewIds] = useState({});
+  const [isSiteNavOpen, setIsSiteNavOpen] = useState(false);
   const [isBurgerDrawerOpen, setIsBurgerDrawerOpen] = useState(false);
   const [burgerCart, setBurgerCart] = useState([]);
   const [drawerFocusBurgerId, setDrawerFocusBurgerId] = useState(null);
@@ -179,12 +182,6 @@ export default function App() {
               alt="BS Monograma BOIS"
               className="navbar-logo-img"
             />
-            <div className="brand-logo-text">
-              <span className="brand-name-main">{SITE_CONFIG.brandName}</span>
-              <span className="brand-sub-text hide-mobile">
-                {SITE_CONFIG.brandSub}
-              </span>
-            </div>
           </a>
 
           <div className="top-bar-actions">
@@ -209,17 +206,6 @@ export default function App() {
             </a>
 
             <a
-              href={SITE_CONFIG.contact.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-header-secondary hide-mobile"
-              title="Abrir Google Maps con indicaciones a Tucumán 2901 (esq. Castelli), Mar del Plata"
-            >
-              <Navigation size={15} />
-              <span>Cómo llegar</span>
-            </a>
-
-            <a
               href={mainWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -228,6 +214,17 @@ export default function App() {
               <MessageCircle size={15} />
               <span>{SITE_CONFIG.contact.ctaHeaderText}</span>
             </a>
+
+            <button
+              type="button"
+              className="btn-header-menu-toggle"
+              onClick={() => setIsSiteNavOpen(true)}
+              aria-label="Abrir menú de navegación"
+              aria-expanded={isSiteNavOpen}
+            >
+              <Menu size={18} />
+              <span className="hide-mobile">Menú</span>
+            </button>
           </div>
         </div>
       </header>
@@ -235,6 +232,7 @@ export default function App() {
       <main>
         {/* HERO SECTION CON FOTO DE FONDO, TARJETA CENTRADA Y ESTADO EN VIVO */}
         <section
+          id="inicio"
           className="hero-section"
           aria-label="Presentación principal de BOIS"
           style={{
@@ -716,7 +714,7 @@ export default function App() {
         </section>
 
         {/* 4. BANNER DE CUMPLEAÑOS, GRUPOS Y PEDIDOS DIRECTOS */}
-        <section className="quick-order-section" aria-label="Reservas de cumpleaños, grupos y pedidos directos">
+        <section id="cumples" className="quick-order-section" aria-label="Reservas de cumpleaños, grupos y pedidos directos">
           <div className="container">
             <div className="quick-order-banner">
               <div className="quick-order-text">
@@ -746,7 +744,7 @@ export default function App() {
         </section>
 
         {/* 5. EXPERIENCIA Y AMBIENTACIÓN: SOBRE BOIS (SALÓN & DECK EXTERIOR, MÚSICA Y CUMPLEAÑOS) */}
-        <section className="about-section" aria-label="Sobre BOIS Café y Cantina">
+        <section id="sobre-bois" className="about-section" aria-label="Sobre BOIS Café y Cantina">
           <div className="container">
             <div className="about-card">
               <div className="about-text-col">
@@ -1038,6 +1036,12 @@ export default function App() {
           </span>
         </button>
       )}
+
+      {/* MENÚ DE NAVEGACIÓN DE SECCIONES (DRAWER OFF-CANVAS HAMBURGUESA) */}
+      <SiteNavDrawer
+        isOpen={isSiteNavOpen}
+        onClose={() => setIsSiteNavOpen(false)}
+      />
 
       {/* MENÚ LATERAL DE BURGERS (DRAWER OFF-CANVAS DESDE LA DERECHA) */}
       <BurgerMenuDrawer
