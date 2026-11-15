@@ -361,11 +361,9 @@ export const SITE_CONFIG = {
   // Sobre Nosotros (Debajo de los menús PDF)
   about: {
     eyebrow: "Tucumán esq. Castelli · Mar del Plata",
-    title:
-      "Olvidate de cocinar o de dar vueltas buscando un lugar donde todos queden conformes.",
+    title: "Olvidate de cocinar o de buscar dónde comer.",
     paragraphs: [
-      "En BOIS resolvés todo el día: arrancá o cortá la tarde con café, tentaciones y opciones saludables; salvá tus mediodías de lunes a viernes con nuestro menú ejecutivo desde las 11 hs; y quedate a la noche en modo barcito y cantina con tapeos, sánguches, tragos y buena música.",
-      "Vení solo, con amigos o a festejar tu cumple. Acá siempre hay buena onda.",
+      "Resolvemos tu día: café, tentaciones y opciones saludables, menú ejecutivo desde las 11 hs, milas, sandwiches, burgers y a la noche la cantina se pone modo barcito con tapeos, tragos y la mejor música.",
     ],
     features: [
       {
