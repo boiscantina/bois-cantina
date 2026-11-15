@@ -742,7 +742,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. EXPERIENCIA Y AMBIENTACIÓN: SOBRE BOIS (SALÓN & DECK EXTERIOR, MÚSICA Y CUMPLEAÑOS) */}
+        {/* 5. EXPERIENCIA Y AMBIENTACIÓN: SOBRE BOIS */}
         <section id="sobre-bois" className="about-section" aria-label="Sobre BOIS Café y Cantina">
           <div className="container">
             <div className="about-card">
@@ -763,23 +763,6 @@ export default function App() {
                   <p key={idx} className="about-paragraph">
                     {p}
                   </p>
-                ))}
-              </div>
-
-              <div className="about-features-col">
-                {SITE_CONFIG.about.features.map((feat, idx) => (
-                  <div key={idx} className="about-feature-item">
-                    <div className="about-feature-icon">
-                      {idx === 0 && <Sparkles size={20} />}
-                      {idx === 1 && <Coffee size={20} />}
-                      {idx === 2 && <Wine size={20} />}
-                      {idx === 3 && <MessageCircle size={20} />}
-                    </div>
-                    <div>
-                      <h3>{feat.title}</h3>
-                      <p>{feat.desc}</p>
-                    </div>
-                  </div>
                 ))}
               </div>
             </div>

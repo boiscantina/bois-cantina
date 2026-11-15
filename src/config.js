@@ -363,7 +363,7 @@ export const SITE_CONFIG = {
     eyebrow: "Tucumán esq. Castelli · Mar del Plata",
     title: "Olvidate de cocinar o de buscar dónde comer.",
     paragraphs: [
-      "Resolvemos tu día: café, tentaciones y opciones saludables, menú ejecutivo desde las 11 hs, milas, sandwiches, burgers y a la noche la cantina se pone modo barcito con tapeos, tragos y la mejor música.",
+      "Resolvemos tu día: café, tentaciones y opciones saludables. Menú ejecutivo de lunes a viernes (¡plato nuevo desde las 11 hs!), milas, sándwiches y burgers. A la noche, la cantina se pone modo barcito con tapeos, tragos y la mejor música. ¡Y transmitimos todos los eventos deportivos en vivo con sonido!",
     ],
     features: [
       {
@@ -611,7 +611,7 @@ export const SITE_CONFIG = {
     ],
     sectionTitle: "Seguinos en Instagram",
     sectionSubtitle:
-      "Enterate de nuestras promos de todos los días, las Burgers en @boisburgers y la agenda de eventos deportivos y plancitos en @boiscantina.",
+      "Enterate de nuestras promos y plancitos en nuestras redes sociales.",
     posts: [
       {
         id: 1,

@@ -2448,11 +2448,8 @@ a {
   background: var(--bois-blue);
   color: var(--bois-cream);
   border-radius: 26px;
-  padding: 42px;
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 36px;
-  align-items: center;
+  padding: clamp(32px, 4.5vw, 48px);
+  display: block;
   box-shadow: 0 22px 44px rgba(26, 72, 97, 0.18);
 }
 
@@ -2485,9 +2482,11 @@ a {
 }
 
 .about-paragraph {
-  font-size: 0.95rem;
-  color: rgba(252, 251, 228, 0.88);
-  margin-bottom: 14px;
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  line-height: 1.6;
+  color: rgba(252, 251, 228, 0.92);
+  margin-bottom: 0;
+  max-width: 900px;
 }
 
 .about-features-col {
