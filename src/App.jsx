@@ -423,20 +423,15 @@ export default function App() {
                               type="button"
                               className="btn-carousel-card-action"
                             >
+                              <ShoppingBag size={17} />
                               <span>Pedir / Ver tamaños</span>
-                              <ArrowRight size={14} />
+                              <ArrowRight size={15} />
                             </button>
                           </div>
                         </article>
                       );
                     })}
                   </div>
-                </div>
-
-                <div className="burgers-carousel-footer">
-                  <span className="carousel-footer-hint">
-                    👈 Deslizá para ver las 12 opciones · Todas salen con fritas 👉
-                  </span>
                 </div>
               </div>
             </div>
