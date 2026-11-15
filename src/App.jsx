@@ -88,8 +88,12 @@ export default function App() {
 
   const scrollBurgerCarousel = (direction) => {
     if (burgerCarouselRef.current) {
-      const scrollAmount = direction === 'left' ? -290 : 290;
-      burgerCarouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const card = burgerCarouselRef.current.querySelector('.burger-carousel-card');
+      const step = card ? (card.offsetWidth + 18) : (burgerCarouselRef.current.clientWidth * 0.85);
+      burgerCarouselRef.current.scrollBy({
+        left: direction === 'left' ? -step : step,
+        behavior: 'smooth',
+      });
     }
   };
 

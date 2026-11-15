@@ -1520,9 +1520,9 @@ a {
    ========================================================================== */
 .burgers-split-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: clamp(32px, 5vw, 64px);
-  align-items: center;
+  grid-template-columns: 1fr 1.18fr;
+  gap: clamp(32px, 5vw, 60px);
+  align-items: stretch;
 }
 
 .burgers-split-content {
@@ -1530,6 +1530,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .burgers-split-title {
@@ -1673,13 +1674,14 @@ a {
   width: 100%;
 }
 
-/* CARRUSEL DE BURGERS A LA DERECHA */
+/* CARRUSEL DE BURGERS A LA DERECHA (SHOWCASE DE GRAN IMPACTO) */
 .burgers-carousel-wrap {
   width: 100%;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  height: 100%;
 }
 
 .burgers-carousel-header {
@@ -1692,13 +1694,13 @@ a {
 .burgers-carousel-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.84rem;
+  gap: 7px;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--bois-blue-dark);
   background: #ffffff;
-  border: 1px solid rgba(26, 72, 97, 0.18);
-  padding: 6px 14px;
+  border: 1px solid rgba(26, 72, 97, 0.16);
+  padding: 7px 16px;
   border-radius: 999px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
@@ -1710,29 +1712,30 @@ a {
 .burgers-carousel-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn-carousel-arrow {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: #ffffff;
   border: 1.5px solid rgba(26, 72, 97, 0.2);
-  color: var(--bois-blue);
+  color: var(--bois-blue-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: all 0.18s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-carousel-arrow:hover {
   background: #16a34a;
-  border-color: #86efac;
+  border-color: #16a34a;
   color: #ffffff;
   transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.25);
 }
 
 .burgers-carousel-track-container {
@@ -1742,8 +1745,10 @@ a {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(22, 163, 74, 0.5) transparent;
-  padding: 6px 4px 14px;
+  scrollbar-color: rgba(22, 163, 74, 0.45) transparent;
+  padding: 8px 4px 18px;
+  flex: 1;
+  display: flex;
 }
 
 .burgers-carousel-track-container::-webkit-scrollbar {
@@ -1757,44 +1762,50 @@ a {
 
 .burgers-carousel-track {
   display: flex;
-  gap: 16px;
+  gap: 20px;
+  height: 100%;
+  align-items: stretch;
+  width: max-content;
 }
 
+/* Tarjeta de burger grande: muestra 1 entera y ~15% de la siguiente */
 .burger-carousel-card {
-  width: 260px;
-  min-width: 260px;
-  max-width: 260px;
+  width: calc(84% - 10px);
+  min-width: calc(84% - 10px);
+  max-width: calc(84% - 10px);
   scroll-snap-align: start;
   background: #ffffff;
-  border: 1.5px solid rgba(26, 72, 97, 0.14);
-  border-radius: 16px;
+  border: 2px solid rgba(26, 72, 97, 0.12);
+  border-radius: 22px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.07);
+  min-height: 530px;
 }
 
 .burger-carousel-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: #16a34a;
-  box-shadow: 0 16px 36px rgba(22, 163, 74, 0.18);
+  box-shadow: 0 20px 42px rgba(22, 163, 74, 0.2);
 }
 
 .carousel-card-img-wrap {
   position: relative;
   width: 100%;
-  height: 195px;
+  height: 300px;
   overflow: hidden;
   background: #091720;
+  flex-shrink: 0;
 }
 
 .carousel-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 0.4s ease;
 }
 
 .burger-carousel-card:hover .carousel-card-img {
@@ -1803,42 +1814,43 @@ a {
 
 .carousel-card-badge {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
   color: #fef08a;
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
   border: 1px solid rgba(254, 240, 138, 0.35);
+  letter-spacing: 0.02em;
 }
 
 .carousel-card-body {
-  padding: 14px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
   flex: 1;
   justify-content: space-between;
-  gap: 10px;
+  gap: 14px;
 }
 
 .carousel-card-head {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 6px;
   width: 100%;
   min-width: 0;
 }
 
 .carousel-card-title {
   font-family: var(--font-display);
-  font-size: 1.08rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--bois-blue-dark);
-  line-height: 1.22;
+  line-height: 1.2;
   word-break: break-word;
   margin: 0;
 }
@@ -1846,38 +1858,39 @@ a {
 .carousel-card-price {
   display: inline-flex;
   align-items: baseline;
-  gap: 4px;
+  gap: 6px;
   font-family: var(--font-sans);
-  background: rgba(22, 163, 74, 0.08);
-  border: 1px solid rgba(22, 163, 74, 0.22);
-  padding: 2px 7px;
-  border-radius: 6px;
+  background: rgba(22, 163, 74, 0.09);
+  border: 1px solid rgba(22, 163, 74, 0.24);
+  padding: 4px 10px;
+  border-radius: 8px;
   line-height: 1.25;
 }
 
 .carousel-card-price .price-label {
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   color: #166534;
   opacity: 0.9;
 }
 
 .carousel-card-price .price-value {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #15803d;
 }
 
 .carousel-card-desc {
-  font-size: 0.77rem;
+  font-size: 0.88rem;
   color: #475569;
-  line-height: 1.4;
+  line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin: 0;
 }
 
 .btn-carousel-card-action {
@@ -1885,14 +1898,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   background: rgba(22, 163, 74, 0.1);
-  border: 1px solid rgba(22, 163, 74, 0.3);
+  border: 1.5px solid rgba(22, 163, 74, 0.35);
   color: #15803d;
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -1901,14 +1914,16 @@ a {
   background: #16a34a;
   color: #ffffff;
   border-color: #86efac;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.28);
 }
 
 .burgers-carousel-footer {
   text-align: center;
+  margin-top: -2px;
 }
 
 .carousel-footer-hint {
-  font-size: 0.76rem;
+  font-size: 0.80rem;
   color: #64748b;
   font-weight: 600;
 }
@@ -1924,12 +1939,19 @@ a {
   }
 
   .burger-carousel-card {
-    width: 240px;
-    min-width: 240px;
+    width: calc(85% - 8px);
+    min-width: calc(85% - 8px);
+    max-width: calc(85% - 8px);
+    min-height: 480px;
+    height: auto;
   }
 
   .carousel-card-img-wrap {
-    height: 180px;
+    height: 250px;
+  }
+
+  .carousel-card-title {
+    font-size: 1.25rem;
   }
 }
 
