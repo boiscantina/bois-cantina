@@ -1747,8 +1747,6 @@ a {
   scrollbar-width: thin;
   scrollbar-color: rgba(22, 163, 74, 0.45) transparent;
   padding: 8px 4px 18px;
-  flex: 1;
-  display: flex;
 }
 
 .burgers-carousel-track-container::-webkit-scrollbar {
@@ -1762,20 +1760,18 @@ a {
 
 .burgers-carousel-track {
   display: flex;
-  gap: 20px;
-  height: 100%;
-  align-items: stretch;
+  gap: 16px;
   width: max-content;
 }
 
-/* Tarjeta de burger grande: muestra 1 entera y ~15% de la siguiente */
+/* Tarjeta de burger grande pero proporcionada: muestra 1 entera y asoma la siguiente */
 .burger-carousel-card {
-  width: calc(84% - 10px);
-  min-width: calc(84% - 10px);
-  max-width: calc(84% - 10px);
+  width: 360px;
+  min-width: 360px;
+  max-width: 360px;
   scroll-snap-align: start;
   background: #ffffff;
-  border: 2px solid rgba(26, 72, 97, 0.12);
+  border: 1.5px solid rgba(26, 72, 97, 0.14);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -1795,7 +1791,7 @@ a {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  max-height: 320px;
+  max-height: 270px;
   overflow: hidden;
   background: #091720;
   flex-shrink: 0;
@@ -1816,39 +1812,40 @@ a {
 
 .carousel-card-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  top: 12px;
+  left: 12px;
   background: rgba(0, 0, 0, 0.78);
   backdrop-filter: blur(6px);
   color: #fef08a;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 8px;
   border: 1px solid rgba(254, 240, 138, 0.35);
   letter-spacing: 0.02em;
 }
 
 .carousel-card-body {
-  padding: 20px 22px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   flex: 1;
+  background: #ffffff;
 }
 
 .carousel-card-head {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 4px;
   width: 100%;
   min-width: 0;
 }
 
 .carousel-card-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--bois-blue-dark);
   line-height: 1.2;
@@ -1859,17 +1856,17 @@ a {
 .carousel-card-price {
   display: inline-flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 5px;
   font-family: var(--font-sans);
   background: rgba(22, 163, 74, 0.09);
   border: 1px solid rgba(22, 163, 74, 0.24);
-  padding: 4px 10px;
-  border-radius: 8px;
+  padding: 3px 9px;
+  border-radius: 7px;
   line-height: 1.25;
 }
 
 .carousel-card-price .price-label {
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1878,15 +1875,15 @@ a {
 }
 
 .carousel-card-price .price-value {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 800;
   color: #15803d;
 }
 
 .carousel-card-desc {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: #475569;
-  line-height: 1.5;
+  line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1896,28 +1893,41 @@ a {
 
 .btn-carousel-card-action {
   width: 100%;
-  margin-top: auto;
+  margin-top: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-  color: #ffffff;
+  color: #ffffff !important;
   border: 1.5px solid rgba(187, 247, 208, 0.6);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  padding: 13px 20px;
+  padding: 12px 18px;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.22s ease;
-  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.32);
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.28);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.btn-carousel-card-action span {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+.btn-carousel-card-action svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  flex-shrink: 0;
 }
 
 .btn-carousel-card-action:hover,
 .burger-carousel-card:hover .btn-carousel-card-action {
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   border-color: #ffffff;
-  color: #ffffff;
+  color: #ffffff !important;
   box-shadow: 0 8px 22px rgba(22, 163, 74, 0.45);
   transform: translateY(-2px);
 }
@@ -1933,19 +1943,18 @@ a {
   }
 
   .burger-carousel-card {
-    width: calc(85% - 8px);
-    min-width: calc(85% - 8px);
-    max-width: calc(85% - 8px);
-    height: auto;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
   }
 
   .carousel-card-img-wrap {
     aspect-ratio: 4 / 3;
-    max-height: 260px;
+    max-height: 225px;
   }
 
   .carousel-card-title {
-    font-size: 1.25rem;
+    font-size: 1.20rem;
   }
 }
 
