@@ -1557,21 +1557,100 @@ a {
 
 .burger-spec-row {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
   background: #ffffff;
-  border: 1px solid rgba(26, 72, 97, 0.12);
-  padding: 10px 14px;
-  border-radius: 12px;
+  border: 1px solid rgba(26, 72, 97, 0.10);
+  padding: 10px 16px;
+  border-radius: 14px;
   font-size: 0.88rem;
   line-height: 1.4;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.burger-spec-row .burger-spec-emoji {
-  font-size: 1.25rem;
-  line-height: 1;
+.burger-spec-row:hover {
+  border-color: rgba(26, 72, 97, 0.22);
+  box-shadow: 0 6px 18px rgba(26, 72, 97, 0.08);
+  transform: translateX(4px);
+  background: #fdfdfd;
+}
+
+.burger-spec-icon-box {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+
+/* Paleta refinada por categoría */
+.burger-spec-icon-box.box-beef {
+  background: rgba(185, 28, 28, 0.07);
+  border: 1px solid rgba(185, 28, 28, 0.15);
+  color: #991b1b;
+}
+
+.burger-spec-icon-box.box-wheat {
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  color: #b45309;
+}
+
+.burger-spec-icon-box.box-fries {
+  background: rgba(234, 179, 8, 0.10);
+  border: 1px solid rgba(234, 179, 8, 0.22);
+  color: #a16207;
+}
+
+.burger-spec-icon-box.box-leaf {
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+  color: #15803d;
+}
+
+.burger-spec-icon-box.box-badge {
+  background: rgba(26, 72, 97, 0.08);
+  border: 1px solid rgba(26, 72, 97, 0.18);
+  color: var(--bois-blue);
+}
+
+.burger-spec-row:hover .burger-spec-icon-box {
+  transform: scale(1.08);
+}
+
+.burger-spec-row:hover .burger-spec-icon-box.box-beef {
+  background: #991b1b;
+  color: #ffffff;
+  border-color: #991b1b;
+}
+
+.burger-spec-row:hover .burger-spec-icon-box.box-wheat {
+  background: #b45309;
+  color: #ffffff;
+  border-color: #b45309;
+}
+
+.burger-spec-row:hover .burger-spec-icon-box.box-fries {
+  background: #a16207;
+  color: #ffffff;
+  border-color: #a16207;
+}
+
+.burger-spec-row:hover .burger-spec-icon-box.box-leaf {
+  background: #15803d;
+  color: #ffffff;
+  border-color: #15803d;
+}
+
+.burger-spec-row:hover .burger-spec-icon-box.box-badge {
+  background: var(--bois-blue);
+  color: #ffffff;
+  border-color: var(--bois-blue);
 }
 
 .burger-spec-text-group {
@@ -1581,10 +1660,12 @@ a {
 .burger-spec-row strong {
   color: var(--bois-blue-dark);
   font-weight: 700;
+  font-size: 0.90rem;
 }
 
 .burger-spec-desc {
   color: #334155;
+  font-size: 0.88rem;
 }
 
 .burgers-split-cta-wrap {

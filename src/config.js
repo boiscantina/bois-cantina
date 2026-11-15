@@ -141,11 +141,11 @@ export const SITE_CONFIG = {
     description:
       "Sin atajos ni medallones congelados. Usamos materia prima fresca y cocinamos con atención al detalle. Si vas a darte el gusto, que valga la pena.",
     specs: [
-      { emoji: "🥩", label: "Blend propio", text: "Tapa de asado y roastbeef." },
-      { emoji: "🍞", label: "El pan", text: "Brioche de papa con cúrcuma." },
-      { emoji: "🍟", label: "Papas fritas", text: "Siempre ricas y crocantes." },
-      { emoji: "🌱", label: "Para todos", text: "Opciones sin TACC y medallón vegano." },
-      { emoji: "🔥", label: "Beneficios", text: "Promos todos los días." },
+      { icon: "beef", label: "Blend propio", text: "Tapa de asado y roastbeef." },
+      { icon: "wheat", label: "El pan", text: "Brioche de papa con cúrcuma." },
+      { icon: "fries", label: "Papas fritas", text: "Siempre ricas y crocantes." },
+      { icon: "leaf", label: "Para todos", text: "Opciones sin TACC y medallón vegano." },
+      { icon: "badge", label: "Beneficios", text: "Promos todos los días." },
     ],
     ctaText: "Ver menú y pedir ahora",
     ctaPrompt: "¡Hola BOIS! Quiero ver el menú y hacer un pedido de burgers 🍔🍟",

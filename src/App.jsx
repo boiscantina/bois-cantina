@@ -23,9 +23,52 @@ import {
   Edit3,
   ShoppingBag,
   ArrowRight,
+  Beef,
+  Wheat,
+  Leaf,
+  BadgePercent,
 } from 'lucide-react';
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
+
+function FriesIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M5 11l2 10h10l2-10H5z" />
+      <path d="M7 11V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7" />
+      <path d="M11 11V2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v9" />
+      <path d="M15 11V5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v6" />
+    </svg>
+  );
+}
+
+function renderSpecIcon(icon) {
+  switch (icon) {
+    case 'beef':
+      return <Beef size={18} />;
+    case 'wheat':
+      return <Wheat size={18} />;
+    case 'fries':
+      return <FriesIcon size={18} />;
+    case 'leaf':
+      return <Leaf size={18} />;
+    case 'badge':
+      return <BadgePercent size={18} />;
+    default:
+      return <Sparkles size={18} />;
+  }
+}
 
 export default function App() {
   const mainWhatsAppUrl = getWhatsAppUrl();
@@ -270,7 +313,7 @@ export default function App() {
               {/* COLUMNA IZQUIERDA: CONTENIDO Y CTA PRINCIPAL */}
               <div className="burgers-split-content">
                 <span className="section-eyebrow">
-                  <Flame size={14} /> {SITE_CONFIG.burgersSection.eyebrow}
+                  <Sparkles size={14} /> {SITE_CONFIG.burgersSection.eyebrow}
                 </span>
                 <h2 className="section-title burgers-split-title">{SITE_CONFIG.burgersSection.title}</h2>
                 <p className="section-description burgers-split-lead">
@@ -279,8 +322,10 @@ export default function App() {
 
                 <div className="burger-specs-vertical">
                   {SITE_CONFIG.burgersSection.specs.map((spec, idx) => (
-                    <div key={idx} className="burger-spec-row">
-                      <span className="burger-spec-emoji">{spec.emoji}</span>
+                    <div key={idx} className={`burger-spec-row spec-${spec.icon}`}>
+                      <div className={`burger-spec-icon-box box-${spec.icon}`} aria-hidden="true">
+                        {renderSpecIcon(spec.icon)}
+                      </div>
                       <div className="burger-spec-text-group">
                         <strong className="burger-spec-label">{spec.label}: </strong>
                         <span className="burger-spec-desc">{spec.text}</span>
@@ -311,7 +356,7 @@ export default function App() {
               <div className="burgers-carousel-wrap">
                 <div className="burgers-carousel-header">
                   <span className="burgers-carousel-tag">
-                    <Flame size={13} />
+                    <Sparkles size={13} />
                     <span>Nuestra Carta ({SITE_CONFIG.allBurgers.length} Variedades)</span>
                   </span>
                   <div className="burgers-carousel-nav">
