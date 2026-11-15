@@ -73,8 +73,8 @@ export const SITE_CONFIG = {
   // Imagen de fondo principal del Hero y sección interactiva de 3 pilares debajo del Hero
   heroBackgroundImage: "/images/hero-bois.jpg",
   introSection: {
-    title: "Especialistas en buenos planes y amigos de todo el barrio.",
-    lead: "El punto de encuentro en el barrio, de la mañana a la noche.",
+    title: "Especialistas en buenos planes",
+    lead: "El punto de encuentro en zona Paseo Aldrey que resuelve cualquier momento del día. Café, cantina y hamburguesas en un mismo lugar. Ideal para venir solo a desconectar o juntarse a comer bien, de la mañana a la noche.",
     mapEmbedUrl:
       "https://maps.google.com/maps?q=Tucuman+2901,+Mar+del+Plata,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed",
     mapAddressLabel: "Tucumán esq. Castelli",
