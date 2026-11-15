@@ -139,7 +139,7 @@ export const SITE_CONFIG = {
     eyebrow: "HAMBURGUESAS TOPE DE GAMA",
     title: "Abundantes, ricas y de calidad",
     description:
-      "Sin atajos ni medallones congelados. Usamos materia prima fresca y cocinamos con atención al detalle. Si vas a darte el gusto, que valga la pena.",
+      "Cocinamos con materia prima fresca, en una cocina que destaca por su limpieza y con mucha atención al detalle, nada de atajos y medallones congelados. Si vas a darte el gusto, que valga la pena.",
     specs: [
       { icon: "beef", label: "Blend propio", text: "Tapa de asado y roastbeef." },
       { icon: "wheat", label: "El pan", text: "Brioche de papa con cúrcuma." },

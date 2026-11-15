@@ -57,20 +57,20 @@ export default function SiteNavDrawer({ isOpen, onClose }) {
     {
       id: 'resenas',
       title: 'Reseñas en Google',
-      subtitle: '4.9★ con más de 1.250 opiniones',
+      subtitle: `${SITE_CONFIG.googleRating.score}★ en Google (${SITE_CONFIG.googleRating.reviewsCount} reseñas)`,
       icon: Star,
-      badge: '4.9★',
+      badge: `${SITE_CONFIG.googleRating.score}★`,
     },
     {
       id: 'cumples',
       title: 'Cumpleaños & Grupos',
-      subtitle: 'Deck calefaccionado y promos especiales',
+      subtitle: 'Deck y promos especiales',
       icon: PartyPopper,
     },
     {
       id: 'sobre-bois',
       title: 'Sobre BOIS',
-      subtitle: 'Cantina de amigos, salón y terraza',
+      subtitle: 'Cantina de amigos, comidas & barcito',
       icon: Coffee,
     },
     {
