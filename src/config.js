@@ -34,13 +34,13 @@ export const SITE_CONFIG = {
   // Horarios Oficiales (Salón y Delivery)
   schedule: {
     salon: [
-      { days: "Lunes a Viernes", hours: "08:00 a 00:00 hs (de corrido)" },
-      { days: "Sábados", hours: "10:00 a 15:30 hs y 19:00 a 00:00 hs" },
-      { days: "Domingos", hours: "19:00 a 00:00 hs" },
+      { days: "Lunes a Viernes", hours: "8 a 00 hs (de corrido)" },
+      { days: "Sábados", hours: "10 a 15:30 hs y 19 a 00 hs" },
+      { days: "Domingos", hours: "19 a 00 hs" },
     ],
     delivery: [
-      { days: "Mediodía (Lun a Sáb)", hours: "12:00 a 15:30 hs" },
-      { days: "Noche (Lun a Dom)", hours: "19:00 a 23:30 hs" },
+      { days: "Mediodía (Lun a Sáb)", hours: "12 a 15:30 hs" },
+      { days: "Noche (Lun a Dom)", hours: "19 a 23:30 hs" },
     ],
   },
 
@@ -395,7 +395,7 @@ export const SITE_CONFIG = {
     },
     {
       q: "¿Cuáles son los horarios de apertura y de delivery?",
-      a: "Lunes a viernes de 08:00 a 00:00 hs de corrido; sábados de 10:00 a 15:30 y de 19:00 a 00:00 hs; domingos de 19:00 a 00:00 hs. Delivery de 12:00 a 15:30 hs (lun a sáb) y de 19:00 a 23:30 hs.",
+      a: "Lunes a viernes de 8 a 00 hs de corrido; sábados de 10 a 15:30 y de 19 a 00 hs; domingos de 19 a 00 hs. Delivery de 12 a 15:30 hs (lun a sáb) y de 19 a 23:30 hs.",
     },
     {
       q: "¿Dónde están ubicados y cómo reservo o hago un pedido?",
@@ -720,7 +720,7 @@ export function getBoisLiveStatus() {
         detail = "De corrido hasta las 00 hs";
       } else {
         isOpen = false;
-        detail = "Abrimos hoy a las 08 hs";
+        detail = "Abrimos hoy a las 8 hs";
       }
     } else if (day === 6) {
       // Sábados: 10:00 (600) a 15:30 (930) y 19:00 (1140) a 24:00 (1440)
