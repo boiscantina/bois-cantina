@@ -12,6 +12,9 @@ import {
   Check,
   ChevronDown,
   ChevronUp,
+  Truck,
+  Store,
+  MapPin,
 } from 'lucide-react';
 import { SITE_CONFIG } from './config';
 
@@ -45,9 +48,13 @@ export default function BurgerMenuDrawer({
 }) {
   // Estado para el tamaño seleccionado por cada burger en el catálogo
   const [selectedSizes, setSelectedSizes] = useState({});
+  // Modalidad: 'delivery' o 'pickup' (pasar a retirar)
+  const [orderType, setOrderType] = useState('delivery');
+  // Dirección para delivery
+  const [deliveryAddress, setDeliveryAddress] = useState('');
   // Vista: 'catalog' o 'cart' (o mostrar carrito abajo)
   const [showCartDetails, setShowCartDetails] = useState(false);
-  // Nota general (ej. dirección, sin TACC, etc.)
+  // Nota general (ej. sin TACC, etc.)
   const [generalNote, setGeneralNote] = useState('');
   // Feedback visual momentáneo al agregar
   const [addedAnimationId, setAddedAnimationId] = useState(null);
@@ -160,7 +167,7 @@ export default function BurgerMenuDrawer({
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // Link formateado para WhatsApp
+  // Link formateado para WhatsApp con modalidad y dirección
   const buildWhatsAppUrl = () => {
     if (cart.length === 0) return '#';
     let msg = '¡Hola BOIS! Quiero hacer este pedido desde la web:\n\n';
@@ -174,13 +181,25 @@ export default function BurgerMenuDrawer({
     });
 
     msg += `\n💰 *Total: $${totalPrice.toLocaleString('es-AR')}*\n`;
-    msg += `🍟 _(Todas las burgers incluyen papas fritas)_\n`;
+    msg += `🍟 _(Todas las burgers incluyen papas fritas)_\n\n`;
 
-    if (generalNote && generalNote.trim()) {
-      msg += `\n📝 *Nota general / Dirección*: ${generalNote.trim()}\n`;
+    if (orderType === 'delivery') {
+      msg += `🛵 *Modalidad: DELIVERY*\n`;
+      if (deliveryAddress && deliveryAddress.trim()) {
+        msg += `📍 *Dirección de entrega*: ${deliveryAddress.trim()}\n`;
+      } else {
+        msg += `📍 *Dirección de entrega*: (Te paso la dirección a continuación)\n`;
+      }
+    } else {
+      msg += `🛍️ *Modalidad: PASAR A RETIRAR (Take Away)*\n`;
+      msg += `📍 *Retiro por el local*: Tucumán 2901 (esq. Castelli)\n`;
     }
 
-    msg += `\n¿Me confirman demora y si es para delivery o retiro por Tucumán esq. Castelli? ¡Muchas gracias!`;
+    if (generalNote && generalNote.trim()) {
+      msg += `📝 *Nota adicional*: ${generalNote.trim()}\n`;
+    }
+
+    msg += `\n¿Me confirman demora? ¡Muchas gracias!`;
 
     const phone = SITE_CONFIG.contact.whatsappPhone || '5492234251674';
     return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -393,15 +412,15 @@ export default function BurgerMenuDrawer({
                     ))}
                   </div>
 
-                  {/* Campo de dirección / nota general */}
+                  {/* Campo de aclaraciones adicionales */}
                   <div className="drawer-general-note">
                     <label htmlFor="general-note" className="general-note-label">
-                      Dirección de entrega o retiro (opcional):
+                      Aclaración adicional para la cocina (opcional):
                     </label>
                     <input
                       id="general-note"
                       type="text"
-                      placeholder="Ej: Tucumán 2901 timbre 2B, o retiro por el local"
+                      placeholder="Ej: sin hielo en la bebida, salsas aparte, etc."
                       value={generalNote}
                       onChange={(e) => setGeneralNote(e.target.value)}
                       className="general-note-input"
@@ -409,6 +428,51 @@ export default function BurgerMenuDrawer({
                   </div>
                 </div>
               )}
+
+              {/* SELECTOR MODALIDAD: DELIVERY O PASAR A RETIRAR */}
+              <div className="drawer-order-type-box">
+                <div className="drawer-order-type-tabs" role="radiogroup" aria-label="Modalidad del pedido">
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked={orderType === 'delivery'}
+                    className={`drawer-order-type-btn ${orderType === 'delivery' ? 'is-active' : ''}`}
+                    onClick={() => setOrderType('delivery')}
+                  >
+                    <Truck size={15} />
+                    <span>Delivery</span>
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked={orderType === 'pickup'}
+                    className={`drawer-order-type-btn ${orderType === 'pickup' ? 'is-active' : ''}`}
+                    onClick={() => setOrderType('pickup')}
+                  >
+                    <Store size={15} />
+                    <span>Pasar a retirar</span>
+                  </button>
+                </div>
+
+                {orderType === 'delivery' ? (
+                  <div className="drawer-address-input-wrapper">
+                    <MapPin size={15} className="drawer-address-icon" />
+                    <input
+                      type="text"
+                      placeholder="Dirección de entrega (calle, nro, piso/depto)..."
+                      value={deliveryAddress}
+                      onChange={(e) => setDeliveryAddress(e.target.value)}
+                      className="drawer-address-input"
+                      aria-label="Dirección de entrega"
+                    />
+                  </div>
+                ) : (
+                  <div className="drawer-pickup-location-info">
+                    <MapPin size={14} className="drawer-pickup-icon" />
+                    <span>Retiro por el local: <strong>Tucumán 2901 (esq. Castelli)</strong></span>
+                  </div>
+                )}
+              </div>
 
               {/* BOTÓN FINALIZAR POR WHATSAPP */}
               <a
