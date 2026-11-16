@@ -496,7 +496,7 @@ export default function App() {
                   </a>
 
                   <a
-                    href={SITE_CONFIG.contact.googleMapsUrl}
+                    href={SITE_CONFIG.googleRating.writeReviewUrl || "https://g.page/r/CU6jp6tPXN98EBM/review"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-google-action btn-google-write"

@@ -49,6 +49,7 @@ export const SITE_CONFIG = {
     score: "4.9",
     reviewsCount: "271",
     label: "Calificación en Google Maps",
+    writeReviewUrl: "https://g.page/r/CU6jp6tPXN98EBM/review",
     highlights: [
       "Papas fritas crocantes «un mil» y porciones abundantes",
       "Ambientación cálida, buena música y festejos de cumpleaños",
