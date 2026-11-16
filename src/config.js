@@ -289,9 +289,9 @@ export const SITE_CONFIG = {
     },
     {
       id: "burger-semana",
-      name: "Burger de la Semana",
-      ingredientsSuffix: "morrones asados, queso fundido y alioli casero.",
-      badge: "Edición Especial",
+      name: "Argenbois",
+      ingredientsSuffix: "provoleta, chimi, morrones asados, huevo a la plancha, alioli y berenjenas al escabeche.",
+      badge: "Burger de la Semana",
       image: "/images/burgers/burger-de-la-semana.jpg",
       prices: { simple: 17000, doble: 21000, triple: 23000 },
       defaultSize: "doble",
