@@ -701,6 +701,8 @@ a {
   display: block;
   border: 0;
   background: #e5e3df;
+  filter: grayscale(100%) contrast(1.06) brightness(0.98);
+  transition: filter 0.3s ease;
 }
 
 .fullwidth-map-bar {
