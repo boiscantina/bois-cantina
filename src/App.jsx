@@ -254,7 +254,8 @@ export default function App() {
                   Cafetería, Cantina &amp; Hamburguesería
                 </span>
                 <span className="hero-title-main">
-                  Las mejores <em>burgers</em> de Mar del Plata
+                  <span className="hero-title-line">Las mejores <em>burgers</em></span>
+                  <span className="hero-title-line">de Mar del Plata</span>
                 </span>
               </h1>
 
