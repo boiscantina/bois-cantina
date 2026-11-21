@@ -465,10 +465,10 @@ export default function App() {
                 </div>
 
                 <h2 className="reviews-section-title">
-                  Muchas gracias a quienes nos eligen
+                  Reseñas de la gente que nos elige
                 </h2>
                 <p className="reviews-section-subtitle">
-                  Opiniones espontáneas de comensales y Local Guides que pasaron por la esquina de Castelli y Tucumán.
+                  Lo que dicen los comensales y Local Guides que pasaron por nuestra esquina. Los habituales, los que vienen por primera vez, los que vuelven... más que clientes, son parte de nuestra historia. Gracias por contarnos su experiencia.
                 </p>
               </div>
 
