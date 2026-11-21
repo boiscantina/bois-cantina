@@ -32,7 +32,6 @@ import {
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
 import SiteNavDrawer from './SiteNavDrawer';
-import BoisLocationMap from './BoisLocationMap';
 
 function FriesIcon({ size = 18, className = "" }) {
   return (
@@ -942,9 +941,19 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mapa 100% full-width en escala de grises sin locales de la competencia */}
+          {/* Mapa 100% full-width de Google Maps en escala de grises */}
           <div className="fullwidth-map-container">
-            <BoisLocationMap />
+            <iframe
+              title="Ubicación de BOIS Cantina en Google Maps"
+              src={SITE_CONFIG.introSection.mapEmbedUrl}
+              width="100%"
+              height="420"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="fullwidth-map-iframe"
+            />
             <div className="fullwidth-map-bar">
               <div className="container fullwidth-map-bar-inner">
                 <div className="fullwidth-map-info">
