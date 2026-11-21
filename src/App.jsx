@@ -780,7 +780,7 @@ export default function App() {
         <section id="horarios-faq" className="schedule-faq-section" aria-label="Horarios de atención y preguntas frecuentes">
           <div className="container">
             <div className="schedule-faq-grid">
-              {/* Tarjeta de Horarios del Local y Delivery con indicador en vivo */}
+              {/* Tarjeta de Horarios del Local y Delivery en 2 columnas con resaltado de HOY */}
               <div className="schedule-box">
                 <div className="schedule-box-header">
                   <span className="section-eyebrow">
@@ -789,62 +789,110 @@ export default function App() {
                   <div className={`live-status-pill-lg ${liveStatus.isOpen ? 'is-open' : 'is-closed'}`}>
                     <span className="status-dot" />
                     <strong>{liveStatus.label}</strong>
+                    <span className="live-status-sep">·</span>
+                    <span className="live-status-detail-inline">{liveStatus.detail}</span>
                   </div>
                 </div>
 
                 <h2 className="schedule-box-title">Salón, Deck Exterior &amp; Delivery</h2>
-                <p className="schedule-box-detail">{liveStatus.detail}</p>
 
-                <div className="schedule-group">
-                  <h3>
-                    <Utensils size={16} /> Horarios de Salón &amp; Take Away
-                  </h3>
-                  <ul className="schedule-list">
-                    {SITE_CONFIG.schedule.salon.map((row, idx) => (
-                      <li key={idx}>
-                        <span>{row.days}</span>
-                        <strong>{row.hours}</strong>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="schedule-columns-grid">
+                  {/* Columna 1: Salón & Take Away */}
+                  <div className="schedule-panel">
+                    <div className="schedule-panel-head">
+                      <div className="schedule-panel-title-wrap">
+                        <span className="schedule-panel-icon" aria-hidden="true">
+                          <Utensils size={16} />
+                        </span>
+                        <h3>Salón &amp; Take Away</h3>
+                      </div>
+                    </div>
+
+                    <div className="schedule-rows-stack">
+                      {SITE_CONFIG.schedule.salon.map((row, idx) => {
+                        const isToday =
+                          (idx === 0 && liveStatus.day >= 1 && liveStatus.day <= 5) ||
+                          (idx === 1 && liveStatus.day === 6) ||
+                          (idx === 2 && liveStatus.day === 0);
+
+                        return (
+                          <div
+                            key={idx}
+                            className={`schedule-row-card ${isToday ? 'is-today' : ''}`}
+                          >
+                            <div className="schedule-row-day">
+                              <span>{row.days}</span>
+                              {isToday && <span className="schedule-today-badge">HOY</span>}
+                            </div>
+                            <strong className="schedule-row-hours">{row.hours}</strong>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Columna 2: Delivery */}
+                  <div className="schedule-panel schedule-panel-delivery">
+                    <div className="schedule-panel-head">
+                      <div className="schedule-panel-title-wrap">
+                        <span className="schedule-panel-icon is-delivery" aria-hidden="true">
+                          <Truck size={16} />
+                        </span>
+                        <h3>Delivery</h3>
+                      </div>
+                      <span className={`delivery-mini-badge ${liveStatus.isDeliveryOpen ? 'is-open' : ''}`}>
+                        {liveStatus.deliveryLabel}
+                      </span>
+                    </div>
+
+                    <div className="schedule-rows-stack">
+                      {SITE_CONFIG.schedule.delivery.map((row, idx) => {
+                        const isActiveShift =
+                          (idx === 0 && liveStatus.activeDeliveryShift === 'midday') ||
+                          (idx === 1 && liveStatus.activeDeliveryShift === 'night');
+
+                        return (
+                          <div
+                            key={idx}
+                            className={`schedule-row-card ${isActiveShift ? 'is-today' : ''}`}
+                          >
+                            <div className="schedule-row-day">
+                              <span>{row.days}</span>
+                              {isActiveShift && (
+                                <span className="schedule-today-badge is-live">AHORA</span>
+                              )}
+                            </div>
+                            <strong className="schedule-row-hours">{row.hours}</strong>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <p className="schedule-delivery-note">
+                      Envíos en la zona · Pedís directo por WhatsApp sin intermediarios.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="schedule-group">
-                  <div className="schedule-group-head">
-                    <h3>
-                      <Truck size={16} /> Horarios de Delivery
-                    </h3>
-                    <span className={`delivery-mini-badge ${liveStatus.isDeliveryOpen ? 'is-open' : ''}`}>
-                      {liveStatus.deliveryLabel}
-                    </span>
-                  </div>
-                  <ul className="schedule-list">
-                    {SITE_CONFIG.schedule.delivery.map((row, idx) => (
-                      <li key={idx}>
-                        <span>{row.days}</span>
-                        <strong>{row.hours}</strong>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Pie compacto con dirección + CTA WhatsApp */}
+                <div className="schedule-footer-bar">
+                  <address className="schedule-footer-address">
+                    <MapPin size={16} />
+                    <div>
+                      <strong>Tucumán 2900 (esq. Castelli 2000)</strong>
+                      <span>Zona Paseo Aldrey · Mar del Plata</span>
+                    </div>
+                  </address>
+                  <a
+                    href={mainWhatsAppUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="schedule-footer-wa-btn"
+                  >
+                    <MessageCircle size={16} />
+                    <span>WhatsApp {SITE_CONFIG.contact.whatsappDisplay}</span>
+                  </a>
                 </div>
-
-                <address className="schedule-address-box">
-                  <MapPin size={16} />
-                  <div>
-                    <strong>{SITE_CONFIG.addressFull}</strong>
-                    <span>
-                      WhatsApp exclusivo de pedidos y reservas:{' '}
-                      <a
-                        href={mainWhatsAppUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="schedule-wa-link"
-                      >
-                        {SITE_CONFIG.contact.whatsappDisplay}
-                      </a>
-                    </span>
-                  </div>
-                </address>
               </div>
 
               {/* Preguntas Frecuentes Desplegables (Acordeón semántico <details> sincronizado con Schema FAQPage) */}

@@ -756,18 +756,26 @@ export function getBoisLiveStatus() {
       isOpen,
       label: isOpen ? "ABIERTO" : "CERRADO",
       detail,
+      day,
       isDeliveryOpen,
+      activeDeliveryShift: isDeliveryMidday
+        ? "midday"
+        : isDeliveryNight
+        ? "night"
+        : null,
       deliveryLabel: isDeliveryOpen
-        ? "Delivery activo ahora"
-        : "Delivery: 12 a 15:30 y 19 a 23:30 hs",
+        ? "Activo ahora"
+        : "Fuera de turno",
     };
   } catch {
     return {
       isOpen: true,
       label: "ABIERTO",
       detail: "Lun a Vie 8 a 00 hs · Sáb 10 a 15:30 y 19 a 00 hs · Dom 19 a 00 hs",
+      day: new Date().getDay(),
       isDeliveryOpen: true,
-      deliveryLabel: "Delivery: 12 a 15:30 y 19 a 23:30 hs",
+      activeDeliveryShift: null,
+      deliveryLabel: "12 a 15:30 y 19 a 23:30 hs",
     };
   }
 }
