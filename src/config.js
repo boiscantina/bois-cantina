@@ -138,9 +138,9 @@ export const SITE_CONFIG = {
   // Sección: Hamburguesas Tope de Gama (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
     eyebrow: "HAMBURGUESAS TOPE DE GAMA",
-    title: "Abundantes, ricas y de calidad",
+    title: "Si vas a darte el gusto, que valga la pena",
     description:
-      "Cocinamos con materia prima fresca, en una cocina que destaca por su limpieza y con mucha atención al detalle, nada de atajos y medallones congelados. Si vas a darte el gusto, que valga la pena.",
+      "Ingredientes de primera, carne fresca, porciones abundantes y precios que cierran. Atención al detalle y cocina impecable. Nada de comida industrial ni medallones congelados.",
     specs: [
       { icon: "beef", label: "Blend propio", text: "Tapa de asado y roastbeef." },
       { icon: "wheat", label: "El pan", text: "Brioche de papa con cúrcuma." },
