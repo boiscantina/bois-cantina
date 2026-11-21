@@ -192,7 +192,7 @@ export default function BurgerMenuDrawer({
       }
     } else {
       msg += `🛍️ *Modalidad: PASAR A RETIRAR (Take Away)*\n`;
-      msg += `📍 *Retiro por el local*: Tucumán 2901 (esq. Castelli)\n`;
+      msg += `📍 *Retiro por el local*: Tucumán 2900 (esquina Castelli 2000)\n`;
     }
 
     if (generalNote && generalNote.trim()) {
@@ -469,7 +469,7 @@ export default function BurgerMenuDrawer({
                 ) : (
                   <div className="drawer-pickup-location-info">
                     <MapPin size={14} className="drawer-pickup-icon" />
-                    <span>Retiro por el local: <strong>Tucumán 2901 (esq. Castelli)</strong></span>
+                    <span>Retiro por el local: <strong>Tucumán 2900 (esquina Castelli 2000)</strong></span>
                   </div>
                 )}
               </div>
