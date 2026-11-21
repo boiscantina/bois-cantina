@@ -138,7 +138,7 @@ export const SITE_CONFIG = {
   // Sección: Hamburguesas Tope de Gama (Foco 100% en técnica, insumos y personalización)
   burgersSection: {
     eyebrow: "HAMBURGUESAS TOPE DE GAMA",
-    title: "Si vas a darte el gusto, que valga la pena",
+    title: "Si vas a darte el gusto,\nque valga la pena",
     description:
       "Ingredientes de primera, carne fresca, porciones abundantes y precios que cierran. Atención al detalle y cocina impecable. Nada de comida industrial ni medallones congelados.",
     specs: [

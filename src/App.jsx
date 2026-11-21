@@ -318,7 +318,13 @@ export default function App() {
                 <span className="section-eyebrow">
                   <Sparkles size={14} /> {SITE_CONFIG.burgersSection.eyebrow}
                 </span>
-                <h2 className="section-title burgers-split-title">{SITE_CONFIG.burgersSection.title}</h2>
+                <h2 className="section-title burgers-split-title">
+                  {SITE_CONFIG.burgersSection.title.split('\n').map((line, i) => (
+                    <span key={i} className="hero-title-line">
+                      {line}
+                    </span>
+                  ))}
+                </h2>
                 <p className="section-description burgers-split-lead">
                   {SITE_CONFIG.burgersSection.description}
                 </p>
