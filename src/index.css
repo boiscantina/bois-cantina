@@ -4125,6 +4125,22 @@ a {
   color: var(--bois-cream);
 }
 
+.drawer-payment-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+  margin-top: 2px;
+  border-top: 1px dashed rgba(252, 251, 228, 0.14);
+}
+
+.drawer-payment-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--bois-sage);
+  letter-spacing: 0.01em;
+}
+
 .btn-drawer-whatsapp-checkout {
   width: 100%;
   background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);

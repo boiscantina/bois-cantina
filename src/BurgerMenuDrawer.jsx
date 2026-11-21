@@ -15,6 +15,8 @@ import {
   Truck,
   Store,
   MapPin,
+  Banknote,
+  Landmark,
 } from 'lucide-react';
 import { SITE_CONFIG } from './config';
 
@@ -52,6 +54,8 @@ export default function BurgerMenuDrawer({
   const [orderType, setOrderType] = useState('delivery');
   // Dirección para delivery
   const [deliveryAddress, setDeliveryAddress] = useState('');
+  // Forma de pago: 'efectivo' o 'transferencia'
+  const [paymentMethod, setPaymentMethod] = useState('efectivo');
   // Vista: 'catalog' o 'cart' (o mostrar carrito abajo)
   const [showCartDetails, setShowCartDetails] = useState(false);
   // Nota general (ej. sin TACC, etc.)
@@ -194,6 +198,11 @@ export default function BurgerMenuDrawer({
       msg += `🛍️ *Modalidad: PASAR A RETIRAR (Take Away)*\n`;
       msg += `📍 *Retiro por el local*: Tucumán 2900 (esquina Castelli 2000)\n`;
     }
+
+    msg +=
+      paymentMethod === 'efectivo'
+        ? `💵 *Forma de pago*: Efectivo\n`
+        : `📲 *Forma de pago*: Transferencia\n`;
 
     if (generalNote && generalNote.trim()) {
       msg += `📝 *Nota adicional*: ${generalNote.trim()}\n`;
@@ -472,6 +481,32 @@ export default function BurgerMenuDrawer({
                     <span>Retiro por el local: <strong>Tucumán 2900 (esquina Castelli 2000)</strong></span>
                   </div>
                 )}
+
+                <div className="drawer-payment-block">
+                  <span className="drawer-payment-label">¿Cómo vas a abonar?</span>
+                  <div className="drawer-order-type-tabs" role="radiogroup" aria-label="Forma de pago">
+                    <button
+                      type="button"
+                      role="radio"
+                      aria-checked={paymentMethod === 'efectivo'}
+                      className={`drawer-order-type-btn ${paymentMethod === 'efectivo' ? 'is-active' : ''}`}
+                      onClick={() => setPaymentMethod('efectivo')}
+                    >
+                      <Banknote size={15} />
+                      <span>Efectivo</span>
+                    </button>
+                    <button
+                      type="button"
+                      role="radio"
+                      aria-checked={paymentMethod === 'transferencia'}
+                      className={`drawer-order-type-btn ${paymentMethod === 'transferencia' ? 'is-active' : ''}`}
+                      onClick={() => setPaymentMethod('transferencia')}
+                    >
+                      <Landmark size={15} />
+                      <span>Transferencia</span>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* BOTÓN FINALIZAR POR WHATSAPP */}
