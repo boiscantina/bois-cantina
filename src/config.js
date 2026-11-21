@@ -362,9 +362,20 @@ export const SITE_CONFIG = {
   // Sobre Nosotros (Debajo de los menús PDF)
   about: {
     eyebrow: "Tucumán esq. Castelli · Mar del Plata",
-    title: "Olvidate de cocinar o de buscar dónde comer.",
-    paragraphs: [
-      "Resolvemos cada momento de tu día: tenemos un servicio excepcional de café con tentaciones dulces, saladas y/o saludables. Menú ejecutivo de lunes a viernes (¡plato nuevo desde las 11 hs!), milas, quesadillas, sándwiches y por supuesto las mejores burgers. A la noche, la cantina se pone modo barcito con coctelería de autor y la mejor música para disfrutar con amigos o con la familia. ¡Y transmitimos todos los eventos deportivos en vivo con sonido!",
+    title: "Olvidate de cocinar: resolvemos cada momento de tu día en Mar del Plata.",
+    moments: [
+      {
+        icon: "coffee",
+        text: "Arrancamos con café de especialidad y tentaciones dulces, saladas y/o saludables.",
+      },
+      {
+        icon: "utensils",
+        text: "Al mediodía sale menú ejecutivo de lunes a viernes (plato nuevo desde las 11 hs), también tenemos en nuestro menú variedad de milanesas, quesadillas, sándwiches y smash burgers.",
+      },
+      {
+        icon: "wine",
+        text: "De noche, nuestra cantina se pone modo bar con coctelería de autor, música y transmisión de eventos deportivos en vivo.",
+      },
     ],
     features: [
       {

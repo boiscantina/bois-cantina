@@ -766,11 +766,18 @@ export default function App() {
                 </div>
 
                 <h2 className="about-title">{SITE_CONFIG.about.title}</h2>
-                {SITE_CONFIG.about.paragraphs.map((p, idx) => (
-                  <p key={idx} className="about-paragraph">
-                    {p}
-                  </p>
-                ))}
+                <ul className="about-moments-list">
+                  {SITE_CONFIG.about.moments.map((moment, idx) => (
+                    <li key={idx} className="about-moment-row">
+                      <span className="about-moment-icon" aria-hidden="true">
+                        {moment.icon === 'coffee' && <Coffee size={19} />}
+                        {moment.icon === 'utensils' && <Utensils size={19} />}
+                        {moment.icon === 'wine' && <Wine size={19} />}
+                      </span>
+                      <p className="about-paragraph">{moment.text}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
