@@ -28,6 +28,7 @@ import {
   Leaf,
   BadgePercent,
   Menu,
+  X,
 } from 'lucide-react';
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
@@ -81,6 +82,7 @@ export default function App() {
   const [expandedReviewIds, setExpandedReviewIds] = useState({});
   const [isSiteNavOpen, setIsSiteNavOpen] = useState(false);
   const [isBurgerDrawerOpen, setIsBurgerDrawerOpen] = useState(false);
+  const [lightboxIdx, setLightboxIdx] = useState(null);
   const [burgerCart, setBurgerCart] = useState([]);
   const [drawerFocusBurgerId, setDrawerFocusBurgerId] = useState(null);
   const [helpfulCounts, setHelpfulCounts] = useState(() =>
@@ -107,6 +109,27 @@ export default function App() {
     }, 60000);
     return () => clearInterval(timer);
   }, []);
+
+  const venueGallery = SITE_CONFIG.reservationTip.gallery || [];
+
+  useEffect(() => {
+    if (lightboxIdx === null) return;
+    document.body.style.overflow = 'hidden';
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setLightboxIdx(null);
+      if (e.key === 'ArrowRight') {
+        setLightboxIdx((prev) => (prev + 1) % venueGallery.length);
+      }
+      if (e.key === 'ArrowLeft') {
+        setLightboxIdx((prev) => (prev - 1 + venueGallery.length) % venueGallery.length);
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKey);
+    };
+  }, [lightboxIdx, venueGallery.length]);
 
   const allReviews = SITE_CONFIG.reviews;
 
@@ -732,33 +755,66 @@ export default function App() {
           </div>
         </section>
 
-        {/* 4. BANNER DE CUMPLEAÑOS, GRUPOS Y PEDIDOS DIRECTOS */}
-        <section id="cumples" className="quick-order-section" aria-label="Reservas de cumpleaños, grupos y pedidos directos">
+        {/* 4. BANNER DE CUMPLEAÑOS, GRUPOS Y GALERÍA DEL LUGAR */}
+        <section id="cumples" className="quick-order-section" aria-label="Reservas de cumpleaños, grupos y galería del lugar">
           <div className="container">
-            <div className="quick-order-banner">
-              <div className="quick-order-text">
-                <img
-                  src={SITE_CONFIG.logos.monogramCream}
-                  alt="BS"
-                  className="banner-mini-logo"
-                />
-                <div>
-                  <strong>{SITE_CONFIG.reservationTip.title}</strong>
-                  <span>{SITE_CONFIG.reservationTip.subtitle}</span>
+            <div className="quick-order-banner has-gallery">
+              <div className="quick-order-top-row">
+                <div className="quick-order-text">
+                  <img
+                    src={SITE_CONFIG.logos.monogramCream}
+                    alt="BS"
+                    className="banner-mini-logo"
+                  />
+                  <div>
+                    <strong>{SITE_CONFIG.reservationTip.title}</strong>
+                    <span>{SITE_CONFIG.reservationTip.subtitle}</span>
+                  </div>
+                </div>
+                <div className="quick-order-buttons">
+                  <a
+                    href={mainWhatsAppUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-whatsapp-inline"
+                    onClick={() => trackEvent('click_whatsapp', { location: 'cumples' })}
+                  >
+                    <MessageCircle size={18} />
+                    <span>Pedidos &amp; reservas</span>
+                  </a>
                 </div>
               </div>
-              <div className="quick-order-buttons">
-                <a
-                  href={mainWhatsAppUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp-inline"
-                  onClick={() => trackEvent('click_whatsapp', { location: 'cumples' })}
-                >
-                  <MessageCircle size={18} />
-                  <span>Pedidos &amp; reservas</span>
-                </a>
-              </div>
+
+              {venueGallery.length > 0 && (
+                <div className="cumples-gallery-wrap">
+                  <div className="cumples-gallery-grid" role="list" aria-label="Fotos de BOIS Café y Cantina">
+                    {venueGallery.map((item, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        role="listitem"
+                        className="cumples-gallery-card"
+                        onClick={() => {
+                          trackEvent('open_venue_photo', { caption: item.caption });
+                          setLightboxIdx(idx);
+                        }}
+                        aria-label={`Ampliar foto: ${item.caption}`}
+                      >
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          loading="lazy"
+                          className="cumples-gallery-img"
+                          style={{ objectPosition: item.objectPosition || 'center center' }}
+                        />
+                        <div className="cumples-gallery-overlay">
+                          <span className="cumples-gallery-caption">{item.caption}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -1114,6 +1170,67 @@ export default function App() {
         setCart={setBurgerCart}
         selectedBurgerIdToFocus={drawerFocusBurgerId}
       />
+
+      {/* LIGHTBOX DE GALERÍA DEL LUGAR */}
+      {lightboxIdx !== null && venueGallery[lightboxIdx] && (
+        <div
+          className="venue-lightbox-backdrop"
+          onClick={() => setLightboxIdx(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Foto ampliada de BOIS"
+        >
+          <button
+            type="button"
+            className="venue-lightbox-close"
+            onClick={() => setLightboxIdx(null)}
+            aria-label="Cerrar foto"
+          >
+            <X size={24} />
+          </button>
+
+          <button
+            type="button"
+            className="venue-lightbox-nav prev"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIdx((lightboxIdx - 1 + venueGallery.length) % venueGallery.length);
+            }}
+            aria-label="Foto anterior"
+          >
+            <ChevronLeft size={26} />
+          </button>
+
+          <figure
+            className="venue-lightbox-figure"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={venueGallery[lightboxIdx].src}
+              alt={venueGallery[lightboxIdx].alt}
+              className="venue-lightbox-img"
+            />
+            <figcaption className="venue-lightbox-caption">
+              <span>{venueGallery[lightboxIdx].caption}</span>
+              <span className="venue-lightbox-counter">
+                {lightboxIdx + 1} / {venueGallery.length}
+              </span>
+            </figcaption>
+          </figure>
+
+          <button
+            type="button"
+            className="venue-lightbox-nav next"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIdx((lightboxIdx + 1) % venueGallery.length);
+            }}
+            aria-label="Siguiente foto"
+          >
+            <ChevronRight size={26} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

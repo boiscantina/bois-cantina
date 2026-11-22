@@ -357,6 +357,50 @@ export const SITE_CONFIG = {
     title: "¿Festejás tu cumpleaños, venís en grupo o querés pedir sin esperas?",
     subtitle:
       "Podés reservar el lugar para festejar tu cumple con buena música, tragos y una ambientación cálida (salón & deck exterior), o adelantar tu pedido por WhatsApp.",
+    gallery: [
+      {
+        type: "image",
+        src: "/images/lugar/fachada-noche.jpg",
+        alt: "Frente iluminado de BOIS Café & Cantina de noche en Tucumán esq. Castelli",
+        caption: "Nuestra esquina de noche",
+        objectPosition: "center 45%",
+      },
+      {
+        type: "image",
+        src: "/images/lugar/barra-amigos.jpg",
+        alt: "Barra de madera cálida con lámparas y pantalla transmitiendo fútbol en BOIS",
+        caption: "Barra, amigos & partidos en vivo",
+        objectPosition: "center center",
+      },
+      {
+        type: "image",
+        src: "/images/lugar/juegos-birra.jpg",
+        alt: "Heladera La Paloma Brewing Co. y juegos de mesa como Jenga, Generala y UNO",
+        caption: "Birras frías & juegos de mesa",
+        objectPosition: "center 55%",
+      },
+      {
+        type: "image",
+        src: "/images/lugar/barra-tele.jpg",
+        alt: "Banquetas en la barra de madera con iluminación cálida y eventos deportivos",
+        caption: "Ambiente cálido en el salón",
+        objectPosition: "center 40%",
+      },
+      {
+        type: "image",
+        src: "/images/lugar/cocteleria.jpg",
+        alt: "Mueble de coctelería y destilados seleccionados en la barra de BOIS",
+        caption: "Coctelería & barra de tragos",
+        objectPosition: "center 45%",
+      },
+      {
+        type: "image",
+        src: "/images/lugar/experiencia-burger.jpg",
+        alt: "Disfrutando una smash burger con papas fritas en BOIS",
+        caption: "Burgers, papas & buena onda",
+        objectPosition: "center 50%",
+      },
+    ],
   },
 
   // Sobre Nosotros (Debajo de los menús PDF)
