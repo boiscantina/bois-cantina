@@ -19,6 +19,7 @@ import {
   Landmark,
 } from 'lucide-react';
 import { SITE_CONFIG } from './config';
+import { trackEvent } from './analytics';
 
 // Helper para armar la descripción dinámica según la cantidad de medallones seleccionada
 function formatBurgerIngredients(burger, size = 'doble') {
@@ -112,6 +113,13 @@ export default function BurgerMenuDrawer({
     const size = selectedSizes[burger.id] || burger.defaultSize || Object.keys(burger.prices)[0];
     const price = burger.prices[size];
     const itemKey = `${burger.id}_${size}`;
+
+    trackEvent('add_to_cart_burger', {
+      burger_name: burger.name,
+      burger_size: size,
+      value: price,
+      currency: 'ARS',
+    });
 
     setCart((prev) => {
       const existingIndex = prev.findIndex((item) => item.key === itemKey);
@@ -515,6 +523,15 @@ export default function BurgerMenuDrawer({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-drawer-whatsapp-checkout"
+                onClick={() =>
+                  trackEvent('checkout_whatsapp_pedido', {
+                    order_type: orderType,
+                    payment_method: paymentMethod,
+                    items_count: totalItems,
+                    value: totalPrice,
+                    currency: 'ARS',
+                  })
+                }
               >
                 <MessageCircle size={22} className="wa-icon" />
                 <div className="btn-checkout-text">

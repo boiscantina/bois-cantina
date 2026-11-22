@@ -14,6 +14,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { SITE_CONFIG, getBoisLiveStatus, getWhatsAppUrl } from './config';
+import { trackEvent } from './analytics';
 
 export default function SiteNavDrawer({ isOpen, onClose }) {
   const liveStatus = getBoisLiveStatus();
@@ -184,6 +185,7 @@ export default function SiteNavDrawer({ isOpen, onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             className="site-nav-wa-btn"
+            onClick={() => trackEvent('click_whatsapp', { location: 'nav_drawer' })}
           >
             <MessageCircle size={18} />
             <span>Pedidos &amp; Reservas WhatsApp</span>
@@ -198,6 +200,9 @@ export default function SiteNavDrawer({ isOpen, onClose }) {
                 rel="noopener noreferrer"
                 className="site-nav-social-pill"
                 title="Instagram de Hamburguesas"
+                onClick={() =>
+                  trackEvent('click_instagram', { account: '@boisburgers', location: 'nav_drawer' })
+                }
               >
                 <Instagram size={14} />
                 <span>@boisburgers</span>
@@ -209,6 +214,9 @@ export default function SiteNavDrawer({ isOpen, onClose }) {
                 rel="noopener noreferrer"
                 className="site-nav-social-pill"
                 title="Instagram de Cantina & Café"
+                onClick={() =>
+                  trackEvent('click_instagram', { account: '@boiscantina', location: 'nav_drawer' })
+                }
               >
                 <Instagram size={14} />
                 <span>@boiscantina</span>

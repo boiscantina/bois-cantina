@@ -32,6 +32,7 @@ import {
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
 import SiteNavDrawer from './SiteNavDrawer';
+import { trackEvent } from './analytics';
 
 function FriesIcon({ size = 18, className = "" }) {
   return (
@@ -210,6 +211,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-header-wa"
+              onClick={() => trackEvent('click_whatsapp', { location: 'header' })}
             >
               <MessageCircle size={15} />
               <span>{SITE_CONFIG.contact.ctaHeaderText}</span>
@@ -218,7 +220,10 @@ export default function App() {
             <button
               type="button"
               className="btn-header-menu-toggle"
-              onClick={() => setIsSiteNavOpen(true)}
+              onClick={() => {
+                trackEvent('open_menu_navegacion');
+                setIsSiteNavOpen(true);
+              }}
               aria-label="Abrir menú de navegación"
               aria-expanded={isSiteNavOpen}
             >
@@ -272,6 +277,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp-hero"
+                  onClick={() => trackEvent('click_whatsapp', { location: 'hero' })}
                 >
                   <MessageCircle size={22} className="wa-icon" />
                   <span>{SITE_CONFIG.contact.ctaPrimaryText}</span>
@@ -348,6 +354,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => {
+                      trackEvent('open_carta_burgers', { source: 'cta_principal' });
                       setDrawerFocusBurgerId(null);
                       setIsBurgerDrawerOpen(true);
                     }}
@@ -398,6 +405,10 @@ export default function App() {
                           key={burger.id}
                           className="burger-carousel-card"
                           onClick={() => {
+                            trackEvent('open_carta_burgers', {
+                              source: 'carrusel',
+                              burger_name: burger.name,
+                            });
                             setDrawerFocusBurgerId(burger.id);
                             setIsBurgerDrawerOpen(true);
                           }}
@@ -497,6 +508,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="btn-google-action btn-google-view"
                     title="Ver perfil oficial de BOIS en Google Maps"
+                    onClick={() => trackEvent('click_ver_en_maps')}
                   >
                     <span>Ver en Maps</span>
                     <ArrowUpRight size={14} />
@@ -508,6 +520,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="btn-google-action btn-google-write"
                     title="Escribir una reseña sobre tu experiencia en BOIS"
+                    onClick={() => trackEvent('click_dejar_resena')}
                   >
                     <Edit3 size={13} />
                     <span>Dejar reseña</span>
@@ -740,6 +753,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp-inline"
+                  onClick={() => trackEvent('click_whatsapp', { location: 'cumples' })}
                 >
                   <MessageCircle size={18} />
                   <span>Pedidos &amp; reservas</span>
@@ -895,6 +909,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="schedule-footer-wa-btn"
+                    onClick={() => trackEvent('click_whatsapp', { location: 'horarios' })}
                   >
                     <MessageCircle size={16} />
                     <span>WhatsApp {SITE_CONFIG.contact.whatsappDisplay}</span>
@@ -968,6 +983,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-open-maps"
+                  onClick={() => trackEvent('click_como_llegar', { location: 'mapa' })}
                 >
                   <span>Cómo llegar en Google Maps</span>
                   <Navigation size={14} />
@@ -1000,6 +1016,9 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-footer-ig"
+                  onClick={() =>
+                    trackEvent('click_instagram', { account: acc.handle, location: 'footer' })
+                  }
                 >
                   <Instagram size={16} />
                   <span>{acc.label}</span>
