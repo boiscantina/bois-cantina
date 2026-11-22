@@ -951,15 +951,15 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Pie compacto con dirección + CTA WhatsApp */}
+                {/* Pie compacto con CTA directo de WhatsApp */}
                 <div className="schedule-footer-bar">
-                  <address className="schedule-footer-address">
-                    <MapPin size={16} />
+                  <div className="schedule-footer-address">
+                    <Clock size={16} />
                     <div>
-                      <strong>Tucumán 2900 (esq. Castelli 2000)</strong>
-                      <span>Zona Paseo Aldrey · Mar del Plata</span>
+                      <strong>¿Querés reservar mesa o hacer un pedido?</strong>
+                      <span>Te respondemos directo por WhatsApp en el momento</span>
                     </div>
-                  </address>
+                  </div>
                   <a
                     href={mainWhatsAppUrl}
                     target="_blank"
@@ -1000,12 +1000,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* 7. MAPA GOOGLE FULL-WIDTH: TUCUMÁN ESQ. CASTELLI */}
+        {/* 7. MAPA GOOGLE FULL-WIDTH */}
         <section id="ubicacion" className="fullwidth-map-section" aria-label="Ubicación de BOIS en Google Maps">
           <div className="container">
             <div className="section-header map-section-header">
               <span className="section-eyebrow">
-                <MapPin size={14} /> Tucumán esq. Castelli
+                <MapPin size={14} /> Ubicación
               </span>
               <h2 className="section-title">{SITE_CONFIG.introSection.title}</h2>
               <p className="section-description">{SITE_CONFIG.introSection.lead}</p>
@@ -1030,9 +1030,9 @@ export default function App() {
                 <div className="fullwidth-map-info">
                   <span className="map-badge-pin">
                     <MapPin size={16} />
-                    <strong>{SITE_CONFIG.introSection.mapAddressLabel}</strong>
+                    <strong>Tucumán 2900 (esq. Castelli 2000)</strong>
                   </span>
-                  <span className="map-badge-hint">{SITE_CONFIG.introSection.mapZoneLabel}</span>
+                  <span className="map-badge-hint">{SITE_CONFIG.city}</span>
                 </div>
                 <a
                   href={SITE_CONFIG.contact.googleMapsUrl}
@@ -1050,7 +1050,7 @@ export default function App() {
         </section>
       </main>
 
-      {/* FOOTER CON FONDO AZUL MARCA (#1A4861), BARRA DE INSTAGRAM, DIRECCIÓN Y LINKS */}
+      {/* FOOTER CON FONDO AZUL MARCA (#1A4861), BARRA DE INSTAGRAM Y LINKS */}
       <footer className="site-footer">
         <div className="container footer-inner">
           {/* Frase y accesos de Seguinos en Instagram */}
@@ -1091,14 +1091,14 @@ export default function App() {
                 alt="BOIS café & cantina"
                 className="footer-logo-img"
               />
-              <address className="footer-brand-info">
+              <div className="footer-brand-info">
                 <strong>
-                  {SITE_CONFIG.brandName} · {SITE_CONFIG.brandSub} ({SITE_CONFIG.city})
+                  {SITE_CONFIG.brandName} · {SITE_CONFIG.brandSub}
                 </strong>
                 <span>
-                  {SITE_CONFIG.addressFull} · Calificación {SITE_CONFIG.googleRating.score}★ (+{SITE_CONFIG.googleRating.reviewsCount} reseñas)
+                  {SITE_CONFIG.city} · Calificación {SITE_CONFIG.googleRating.score}★ (+{SITE_CONFIG.googleRating.reviewsCount} reseñas en Google)
                 </span>
-              </address>
+              </div>
             </div>
             <div className="footer-links">
               <a href="#horarios-faq" onClick={scrollToSection('horarios-faq')}>Horarios &amp; Dudas</a>
@@ -1108,16 +1108,6 @@ export default function App() {
               <a href={mainWhatsAppUrl} target="_blank" rel="noopener noreferrer">
                 WhatsApp ({SITE_CONFIG.contact.whatsappDisplay})
               </a>
-              {SITE_CONFIG.instagram.accounts.map((acc) => (
-                <a
-                  key={acc.handle}
-                  href={acc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {acc.handle}
-                </a>
-              ))}
             </div>
           </div>
         </div>
