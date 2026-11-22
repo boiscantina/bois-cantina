@@ -352,11 +352,14 @@ export const SITE_CONFIG = {
     },
   ],
 
-  // Banner de conversión inteligente (Cumpleaños, Reservas y Pedidos)
+  // Banner de conversión inteligente (Cumpleaños, Grupos y Reservas)
   reservationTip: {
-    title: "¿Festejás tu cumpleaños, venís en grupo o querés pedir sin esperas?",
+    title: "¿Festejás tu cumple o venís en grupo?",
     subtitle:
-      "Podés reservar el lugar para festejar tu cumple con buena música, tragos y una ambientación cálida (salón & deck exterior), o adelantar tu pedido por WhatsApp.",
+      "Cumpleaños, juntadas con amigos, after office o reuniones de equipo. Armamos tu mesa en nuestro salón o deck para que disfruten de noche con música, coctelería, burgers y tapeos — o en modo cafetería con café de especialidad y tentaciones. Vos traés la compañía, nosotros resolvemos el resto.",
+    ctaText: "Reservar mesa o evento",
+    ctaPrompt:
+      "¡Hola BOIS! Quiero consultar disponibilidad para reservar una mesa / festejo grupal 🎉",
     gallery: [
       {
         type: "image",

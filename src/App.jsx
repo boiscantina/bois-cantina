@@ -773,14 +773,14 @@ export default function App() {
                 </div>
                 <div className="quick-order-buttons">
                   <a
-                    href={mainWhatsAppUrl}
+                    href={getWhatsAppUrl(SITE_CONFIG.reservationTip.ctaPrompt)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-whatsapp-inline"
-                    onClick={() => trackEvent('click_whatsapp', { location: 'cumples' })}
+                    onClick={() => trackEvent('click_whatsapp', { location: 'cumples_reserva' })}
                   >
                     <MessageCircle size={18} />
-                    <span>Pedidos &amp; reservas</span>
+                    <span>{SITE_CONFIG.reservationTip.ctaText}</span>
                   </a>
                 </div>
               </div>
