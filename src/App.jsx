@@ -33,7 +33,7 @@ import {
 import { SITE_CONFIG, getWhatsAppUrl, getBoisLiveStatus } from './config';
 import BurgerMenuDrawer from './BurgerMenuDrawer';
 import SiteNavDrawer from './SiteNavDrawer';
-import { trackEvent } from './analytics';
+import { trackEvent, trackWhatsAppLead } from './analytics';
 
 function FriesIcon({ size = 18, className = "" }) {
   return (
@@ -234,7 +234,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-header-wa"
-              onClick={() => trackEvent('click_whatsapp', { location: 'header' })}
+              onClick={() => trackWhatsAppLead('header')}
             >
               <MessageCircle size={15} />
               <span>{SITE_CONFIG.contact.ctaHeaderText}</span>
@@ -300,7 +300,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp-hero"
-                  onClick={() => trackEvent('click_whatsapp', { location: 'hero' })}
+                  onClick={() => trackWhatsAppLead('hero')}
                 >
                   <MessageCircle size={22} className="wa-icon" />
                   <span>{SITE_CONFIG.contact.ctaPrimaryText}</span>
@@ -777,7 +777,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-whatsapp-inline"
-                    onClick={() => trackEvent('click_whatsapp', { location: 'cumples_reserva' })}
+                    onClick={() => trackWhatsAppLead('cumples_reserva')}
                   >
                     <MessageCircle size={18} />
                     <span>{SITE_CONFIG.reservationTip.ctaText}</span>
@@ -965,7 +965,7 @@ export default function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="schedule-footer-wa-btn"
-                    onClick={() => trackEvent('click_whatsapp', { location: 'horarios' })}
+                    onClick={() => trackWhatsAppLead('horarios')}
                   >
                     <MessageCircle size={16} />
                     <span>WhatsApp {SITE_CONFIG.contact.whatsappDisplay}</span>
@@ -1105,7 +1105,12 @@ export default function App() {
               <a href={SITE_CONFIG.contact.googleMapsUrl} target="_blank" rel="noopener noreferrer">
                 Cómo llegar
               </a>
-              <a href={mainWhatsAppUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={mainWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppLead('footer')}
+              >
                 WhatsApp ({SITE_CONFIG.contact.whatsappDisplay})
               </a>
             </div>

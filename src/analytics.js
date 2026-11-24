@@ -16,3 +16,14 @@ export function trackEvent(eventName, params = {}) {
     // Nunca romper la navegación si el usuario tiene bloqueador de anuncios
   }
 }
+
+// Dispara el evento oficial de Google Ads / GA4 (generate_lead) + click_whatsapp
+export function trackWhatsAppLead(location) {
+  trackEvent('generate_lead', {
+    method: 'whatsapp',
+    lead_source: location,
+  });
+  trackEvent('click_whatsapp', {
+    location,
+  });
+}

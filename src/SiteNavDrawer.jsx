@@ -14,7 +14,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { SITE_CONFIG, getBoisLiveStatus, getWhatsAppUrl } from './config';
-import { trackEvent } from './analytics';
+import { trackEvent, trackWhatsAppLead } from './analytics';
 
 export default function SiteNavDrawer({ isOpen, onClose }) {
   const liveStatus = getBoisLiveStatus();
@@ -185,7 +185,7 @@ export default function SiteNavDrawer({ isOpen, onClose }) {
             target="_blank"
             rel="noopener noreferrer"
             className="site-nav-wa-btn"
-            onClick={() => trackEvent('click_whatsapp', { location: 'nav_drawer' })}
+            onClick={() => trackWhatsAppLead('nav_drawer')}
           >
             <MessageCircle size={18} />
             <span>Pedidos &amp; Reservas WhatsApp</span>
