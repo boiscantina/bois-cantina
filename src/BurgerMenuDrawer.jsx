@@ -114,6 +114,20 @@ export default function BurgerMenuDrawer({
     const price = burger.prices[size];
     const itemKey = `${burger.id}_${size}`;
 
+    trackEvent('add_to_cart', {
+      currency: 'ARS',
+      value: price,
+      items: [
+        {
+          item_id: burger.id,
+          item_name: burger.name,
+          item_variant: size,
+          price,
+          quantity: 1,
+        },
+      ],
+    });
+
     trackEvent('add_to_cart_burger', {
       burger_name: burger.name,
       burger_size: size,
@@ -523,15 +537,32 @@ export default function BurgerMenuDrawer({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-drawer-whatsapp-checkout"
-                onClick={() =>
+                onClick={() => {
+                  const purchaseItems = cart.map((item) => ({
+                    item_id: item.burgerId,
+                    item_name: item.name,
+                    item_variant: item.size,
+                    price: item.price,
+                    quantity: item.quantity,
+                  }));
+
+                  trackEvent('purchase', {
+                    transaction_id: `BOIS-${Date.now()}`,
+                    currency: 'ARS',
+                    value: totalPrice,
+                    order_type: orderType,
+                    payment_method: paymentMethod,
+                    items: purchaseItems,
+                  });
+
                   trackEvent('checkout_whatsapp_pedido', {
                     order_type: orderType,
                     payment_method: paymentMethod,
                     items_count: totalItems,
                     value: totalPrice,
                     currency: 'ARS',
-                  })
-                }
+                  });
+                }}
               >
                 <MessageCircle size={22} className="wa-icon" />
                 <div className="btn-checkout-text">
