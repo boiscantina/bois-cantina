@@ -17,13 +17,10 @@ export function trackEvent(eventName, params = {}) {
   }
 }
 
-// Dispara el evento oficial de Google Ads / GA4 (generate_lead) + click_whatsapp
+// Dispara únicamente el evento oficial de Google Ads / GA4 (generate_lead)
 export function trackWhatsAppLead(location) {
   trackEvent('generate_lead', {
     method: 'whatsapp',
     lead_source: location,
-  });
-  trackEvent('click_whatsapp', {
-    location,
   });
 }

@@ -128,13 +128,6 @@ export default function BurgerMenuDrawer({
       ],
     });
 
-    trackEvent('add_to_cart_burger', {
-      burger_name: burger.name,
-      burger_size: size,
-      value: price,
-      currency: 'ARS',
-    });
-
     setCart((prev) => {
       const existingIndex = prev.findIndex((item) => item.key === itemKey);
       if (existingIndex >= 0) {
@@ -550,17 +543,10 @@ export default function BurgerMenuDrawer({
                     transaction_id: `BOIS-${Date.now()}`,
                     currency: 'ARS',
                     value: totalPrice,
+                    items_count: totalItems,
                     order_type: orderType,
                     payment_method: paymentMethod,
                     items: purchaseItems,
-                  });
-
-                  trackEvent('checkout_whatsapp_pedido', {
-                    order_type: orderType,
-                    payment_method: paymentMethod,
-                    items_count: totalItems,
-                    value: totalPrice,
-                    currency: 'ARS',
                   });
                 }}
               >
